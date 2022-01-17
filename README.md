@@ -1,14 +1,4 @@
-         ___        ______     ____ _                 _  ___  
-        / \ \      / / ___|   / ___| | ___  _   _  __| |/ _ \ 
-       / _ \ \ /\ / /\___ \  | |   | |/ _ \| | | |/ _` | (_) |
-      / ___ \ V  V /  ___) | | |___| | (_) | |_| | (_| |\__, |
-     /_/   \_\_/\_/  |____/   \____|_|\___/ \__,_|\__,_|  /_/ 
- ----------------------------------------------------------------- 
-
-
-Hi there! Welcome to AWS Cloud9!
-
-To get started, create some files, play with the terminal,
-or visit https://docs.aws.amazon.com/console/cloud9/ for our documentation.
-
-Happy coding!
+在 cloud9 ide上 git clone https://github.com/tommyliu313/lineinthecloudflaskver,git
+然後在你那aws cloud9 ide ec2 的 security group set custom tcp port 5000 source 0.0.0.0 
+然後完成設定 啟動python3 app.py 開啟 publicipv4 addr.
+http://[publicipv4addr]:5000/[aboutus/index/search]
