@@ -1,0 +1,31 @@
+nav.navbar.has-background-grey {
+  height: 100px;
+  position: relative; }
+  nav.navbar.has-background-grey .navbar-brand .navbar-item {
+    background: url('https://i.imgur.com/pYhr5uq.jpg');
+    width: 360px;
+    background-repeat: no-repeat;
+    position: relative; }
+  nav.navbar.has-background-grey .navbar-brand .navbar-item a.navbar-burger.burger {
+      left: 97%;
+      top: 5%;
+      position: fixed; }
+
+footer {
+  background-color: Aqua; }
+
+button.button.is-link.modal-button {
+  background: #E17070;
+  position: fixed;
+  left: 92%;
+  right: 73%;
+  top: 93.41%;
+  bottom: 2.53%;
+  border-radius: 30px; }
+
+section img {
+  width: 30px;
+  border-radius: 20px; }
+
+hidden {
+  display: none; }
