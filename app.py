@@ -49,6 +49,10 @@ def search():
 @app.route('/aboutus')
 def aboutus():
     return render_template('aboutus.html')
+    
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('./error/404.html'),404
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=5000) #該app會此界面的0.0.0.0的5000埠上運行所以你要額外在securitygroup上
