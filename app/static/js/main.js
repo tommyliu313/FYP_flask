@@ -1,6 +1,6 @@
 /*原始設定*/
 
-import * from "./sweetalert2.min.js";
+import * from "sweetalert2.min.js";
 
 var formatword= "<></>";
 
