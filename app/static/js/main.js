@@ -1,5 +1,5 @@
 /*原始設定*/
-
+import { CognitoUser } from 'amazon-cognito-identity-js'
 
 
 var formatword= "<></>";
