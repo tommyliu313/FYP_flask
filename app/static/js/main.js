@@ -1,6 +1,6 @@
 /*原始設定*/
 
-import * from "sweetalert2.min.js";
+
 
 var formatword= "<></>";
 
@@ -28,7 +28,7 @@ function Login(){
 new swal({
   title: 'Login Form',
   html: `<form method="POST" required>`+`<input type="text" id="login" class="swal2-input" placeholder="Username">
-  <input type="password" id="password" class="swal2-input" placeholder="Password">`+`<button class="swal2-input">`+`<p>Forget Password?</p>`+`</button>`+`</form>`+`<button class="swal2-input" onclick="turnon()">`+`<i class="far fa-eye">`+`</i>`+`</button>`+`<div>`+`<button class="swal2-input">`+`<i class="fab fa-google">`+`</i>`+`</button>`+`<button class="swal2-input">`+`<i class="fab fa-facebook-square">`+`</i>`+`</button>`+`</div>`,
+  <input type="password" id="password" class="swal2-input" placeholder="Password">`+`<button class="swal2-input">`+`<p>Forget Password?</p>`+`</button>`+`</form>`+`<button class="swal2-input" onclick="turnon()">`+`<i class="far fa-eye">`+`</i>`+`</button>`+`<div>`+`<button class="swal2-input" onclick="ongoogle()">`+`<i class="fab fa-google">`+`</i>`+`</button>`+`<button class="swal2-input">`+`<i class="fab fa-facebook-square">`+`</i>`+`</button>`+`</div>`,
   confirmButtonText: 'Sign in',
   focusConfirm: false,
   preConfirm: () => {
@@ -117,3 +117,11 @@ new swal({
   //`.trim())
 })
 })}
+
+//function ongoogle(){
+//    Auth.federatedSignIn({ provider: "Google" }).then(result => {
+//    displayObject(result)
+//  }).catch((err: any) => {
+//    displayObject(err)
+//  })
+//}
