@@ -20,11 +20,11 @@ CodePen - Untitled Vue Version</title>
     <link rel="stylesheet" href="{{ url_for('static',filename='css/bulma.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static',filename='css/fontawesome.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static',filename='css/tailwind.min.css') }}">
-    <script src="script" type="text/javascript" href="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
-    <script src="script" type="text/javascript" href="{{ url_for('static',filename='js/sweetalert2.min.js') }}"></script>
-    <script src="script"  type="text/javascript" href="{{ url_for('static',filename='js/vue.min.js') }}"></script>
-    <script src="script"  type="text/javascript" href="{{ url_for('static',filename='js/main.js') }}"></script>
-    <link src="stylesheet" href="{{ url_for('static',filename='css/css.main.css') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/sweetalert2.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/vue.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/main.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}">
 
 
 </head>
@@ -51,7 +51,11 @@ CodePen - Untitled Vue Version</title>
         </div>
         <div class="navbar-end">
           <div class="navbar-item">
-            <div class="buttons"><a class="button is-danger"><strong>Register</strong></a><a class="button is-outlined is-success" id="login" onClick="Login()"><strong>Login</strong></a></div>
+            <div class="buttons">
+                <a class="button is-danger">
+                    <strong>Register</strong></a>
+                <button class="button is-outlined is-success" id="login" onClick="Login()">
+                    <strong>Login</strong></button></div>
           </div>
         </div>
       </div>
