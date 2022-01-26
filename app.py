@@ -4,6 +4,8 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, Float
 import os
 app = Flask(__name__,template_folder='app/templates',static_folder="app/static")
+app.secret_key = ""
+app.config['SQLALCHEMY_DATABASE_URL'] = ''
 #client = boto3.client('rds')
 
 
