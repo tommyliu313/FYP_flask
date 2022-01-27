@@ -1,7 +1,53 @@
 {% include "navbar.html" %}
-
-
 {% block body %}
-    <h1> I go to school by bus.</h1>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+    <script type="text/javascript" src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/vue.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/main.js') }}"></script>
+ <section class="container-fluid">
+      <div class="row">
+      <div class="carousel slide app1" id="carouselBanner" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+      <li data-bs-target="#carouselBanner" data-bs-slide-to="0">
+      </li>
+      <li class="active" data-bs-target="#carouselBanner" data-bs-slide-to="1">
+      </li>
+      </div>
+      <div class="carousel-inner">
+      <div class="carousel-item" v-for="item in items">
+      <img class="d-block w-100" src="{{item.image.url}}" alt="First slide">
+      <div class="carousel-caption d-none d-md-block text-dark">
+      <h3>
+EVA發泡板</h3>
+      <p>
+依國際標準Pantone標準色卡之色號來製作</p>
+      </div>
+      </div>
+      <div class="carousel-item active">
+      <img class="d-block w-100" src="https://placeholder.pics/svg/300x120" alt="Second slide">
+      <div class="carousel-caption d-none d-md-block">
+      <h3>
+廠房設備</h3>
+      <p>
+高專業的製造能力</p>
+      </div>
+      </div>
+      </div>
+      <button class="carousel-control-prev" href="#carouselBanner" type="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true">
+      </span>
+      <span class="sr-only">
+Previous</span>
+      </button>
+      <button class="carousel-control-next" href="#carouselBanner" type="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true">
+      </span>
+      <span class="sr-only">
+Next</span>
+      </button>
+      </div>
+      </div>
+      </section>
     
 {% endblock %}

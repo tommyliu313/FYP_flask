@@ -1,7 +1,11 @@
 /*原始設定*/
-import { CognitoUser } from 'amazon-cognito-identity-js'
+//import { CognitoUser } from 'amazon-cognito-identity-js'
+//import { Auth } from 'aws-amplify'
 
-
+//Auth.configure({
+//  userPoolId: 'us-east-1_dqiapzBbr',
+//  userPoolWebClientId: '57a80fik1473v2up522vav7br2'
+//})
 var formatword= "<></>";
 
 /*原始網站設定*/
@@ -28,7 +32,7 @@ function Login(){
 new swal({
   title: 'Login Form',
   html: `<form method="POST" required>`+`<input type="text" id="login" class="swal2-input" placeholder="Username">
-  <input type="password" id="password" class="swal2-input" placeholder="Password">`+`<button class="swal2-input">`+`<p>Forget Password?</p>`+`</button>`+`</form>`+`<button class="swal2-input" onclick="turnon()">`+`<i class="far fa-eye">`+`</i>`+`</button>`+`<div>`+`<button class="swal2-input" onclick="ongoogle()">`+`<i class="fab fa-google">`+`</i>`+`</button>`+`<button class="swal2-input">`+`<i class="fab fa-facebook-square">`+`</i>`+`</button>`+`</div>`,
+  <input type="password" id="password" class="swal2-input" placeholder="Password">`+`<button class="swal2-input">`+`<p>Forget Password?</p>`+`</button>`+`</form>`+`<button class="swal2-input" onClick="turnon()">`+`<i class="far fa-eye">`+`</i>`+`</button>`+`<div>`+`<button class="swal2-input" onclick="ongoogle()">`+`<i class="fab fa-google">`+`</i>`+`</button>`+`<button class="swal2-input">`+`<i class="fab fa-facebook-square">`+`</i>`+`</button>`+`</div>`,
   confirmButtonText: 'Sign in',
   focusConfirm: false,
   preConfirm: () => {
