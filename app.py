@@ -12,6 +12,7 @@ app.config['SQLALCHEMY_DATABASE_URL'] = ''
 #basedir = os.path.abspath(os.path.dirname(__file__))
 #app.config['']
 
+
 @app.route('/')
 def hello_world():
     return 'Hello World!'
