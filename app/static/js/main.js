@@ -7,7 +7,7 @@ import { Auth } from 'aws-amplify'
   userPoolWebClientId: '57a80fik1473v2up522vav7br2'
   oauth:{
     region: "us-east-1",
-    domain: '.auth.us-east-1.amazoncognito.com',
+    domain: 'https://lineinthecloud.auth.us-east-1.amazoncognito.com',
     scope: ['email', 'openid', 'aws.cognito.signin.user.admin'],
     /*redirectSignIn: 'https://127.0.0.1:8080',
     redirectSignOut: 'https://127.0.0.1:8080',
