@@ -46,6 +46,13 @@ new swal({
     return { login: login, password: password }
 }})})}
 
+function ResendPasswordConfirm(){
+  Auth.resaendSignUp(currentUserName).then(result =>{
+    Swal.fire('Confirmation code resend')
+  }).catch(err =>{
+    displayObject(err)
+  })
+}
 /*外部資源連結*/
 $.ajax({
 url:'' ,
