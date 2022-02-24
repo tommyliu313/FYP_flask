@@ -1,11 +1,19 @@
 /*原始設定*/
-//import { CognitoUser } from 'amazon-cognito-identity-js'
-//import { Auth } from 'aws-amplify'
+import { CognitoUser } from 'amazon-cognito-identity-js'
+import { Auth } from 'aws-amplify'
 
-//Auth.configure({
-//  userPoolId: 'us-east-1_dqiapzBbr',
-//  userPoolWebClientId: '57a80fik1473v2up522vav7br2'
-//})
+/*Auth.configure({
+  userPoolId: 'us-east-1_dqiapzBbr',
+  userPoolWebClientId: '57a80fik1473v2up522vav7br2'
+  oauth:{
+    region: "us-east-1",
+    domain: '.auth.us-east-1.amazoncognito.com',
+    scope: ['email', 'openid', 'aws.cognito.signin.user.admin'],
+    /*redirectSignIn: 'https://127.0.0.1:8080',
+    redirectSignOut: 'https://127.0.0.1:8080',
+    responseType: 'code'
+  }
+})*/
 var formatword= "<></>";
 
 /*原始網站設定*/
@@ -32,7 +40,7 @@ function Login(){
 new swal({
   title: 'Login Form',
   html: `<form method="POST" required>`+`<input type="text" id="login" class="swal2-input" placeholder="Username">
-  <input type="password" id="password" class="swal2-input" placeholder="Password">`+`<button class="swal2-input">`+`<p>Forget Password?</p>`+`</button>`+`</form>`+`<button class="swal2-input" onClick="turnon()">`+`<i class="far fa-eye">`+`</i>`+`</button>`+`<div>`+`<button class="swal2-input" onclick="ongoogle()">`+`<i class="fab fa-google">`+`</i>`+`</button>`+`<button class="swal2-input">`+`<i class="fab fa-facebook-square">`+`</i>`+`</button>`+`</div>`,
+  <input type="password" id="password" class="swal2-input" placeholder="Password">`+`<button class="swal2-input" onclick="ForgetPassword()">`+`<p>Forget Password?</p>`+`</button>`+`</form>`+`<button class="swal2-input" onClick="turnon()">`+`<i class="far fa-eye">`+`</i>`+`</button>`+`<div>`+`<button class="swal2-input" onclick="ongoogle()">`+`<i class="fab fa-google">`+`</i>`+`</button>`+`<button class="swal2-input">`+`<i class="fab fa-facebook-square">`+`</i>`+`</button>`+`</div>`,
   confirmButtonText: 'Sign in',
   focusConfirm: false,
   preConfirm: () => {
@@ -46,13 +54,13 @@ new swal({
     return { login: login, password: password }
 }})})}
 
-function ResendPasswordConfirm(){
+/*function ResendPasswordConfirm(){
   Auth.resaendSignUp(currentUserName).then(result =>{
     Swal.fire('Confirmation code resend')
   }).catch(err =>{
     displayObject(err)
   })
-}
+}*/
 /*外部資源連結*/
 $.ajax({
 url:'' ,
@@ -128,11 +136,40 @@ new swal({
   //`.trim())
 })
 })}
-
-//function ongoogle(){
-//    Auth.federatedSignIn({ provider: "Google" }).then(result => {
-//    displayObject(result)
-//  }).catch((err: any) => {
-//    displayObject(err)
-//  })
-//}
+/*function logout(){
+  Auth.signOut().then(result=>{
+    setUserState(null);
+  }).catch(err=>{
+    displayObject(err)
+  })
+}*/
+/*function ongoogle(){
+  Auth.federatedSignIn({ provider: "Google" }).then(result => {
+  displayObject(result)
+}).catch((err: any) => {
+  displayObject(err)
+})
+}*/
+function ForgetPassword(){
+new Swal({
+html:`<form method="POST" required>`+`<input type="text" id="forgetlogin" class="swal2-input" placeholder="Enter your username:">
+  <input type="password" id="newpassword" class="swal2-input" placeholder="Enter your new password">`+ `</form>`,
+}).then((result) =>{
+  var username = document.getElementById("forgetlogin");
+  var newpassword = document.getElementById("newpassword");
+   Auth.forgotPasswordSubmit(username, confirmationCode, newPassword).then(confirationResult => {
+      displayObject(confirationResult)
+    })
+      .catch(err => displayObject(err))
+  })
+    .catch(err => displayObject(err))
+}
+function displayObject(data: any) {
+  Swal.fire({
+    title: data && (data.message || data.title || ''),
+    html: `<div class="text-danger" style="text-align:left">  ${JSON.stringify(data || {}, null, 6)
+      .replace(/\n( *)/g, function (match, p1) {
+        return '<br>' + '&nbsp;'.repeat(p1.length);
+      })}</div>`
+  })
+}
