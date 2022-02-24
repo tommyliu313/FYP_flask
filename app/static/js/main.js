@@ -9,8 +9,8 @@ import { Auth } from 'aws-amplify'
     region: "us-east-1",
     domain: 'https://lineinthecloud.auth.us-east-1.amazoncognito.com',
     scope: ['email', 'openid', 'aws.cognito.signin.user.admin'],
-    /*redirectSignIn: 'https://127.0.0.1:8080',
-    redirectSignOut: 'https://127.0.0.1:8080',
+    /*redirectSignIn: 'https://172.31.50.168:5000',
+    redirectSignOut: 'https://172.31.50.168:5000',
     responseType: 'code'
   }
 })*/
