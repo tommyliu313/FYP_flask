@@ -15,3 +15,9 @@ connection.connect(function(err){
     }
     console.log('Connected to database');
 })
+var q = "SELECT * FROM words";
+connection.query(q,function(err,results){
+    if(err) throw err;
+    console.log(results);
+    connection.end();
+})

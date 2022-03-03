@@ -35,7 +35,7 @@ triggeritem.addEventListener('click',()=>{
   navbarMenu.classList.toggle("is-active")
 });
 /*登入機關*/
-function Login(){
+/*function Login(){
   document.getElementById("login").addEventListener('click',function(){
 new swal({
   title: 'Login Form',
@@ -52,7 +52,7 @@ new swal({
       Swal.showValidationMessage(`請你輸入電子郵件及密碼<br>Please enter login and password`)
     }
     return { login: login, password: password }
-}})})}
+}})})}*/
 
 /*function ResendPasswordConfirm(){
   Auth.resaendSignUp(currentUserName).then(result =>{
@@ -91,7 +91,7 @@ $("button.button.is-link.modal-button").click(function(){
    
 })
 
-function Register(){
+/*function Register(){
   document.getElementById("register").addEventListener('click',function(){
 new swal({
   title: 'Register Form',
@@ -126,7 +126,7 @@ new swal({
       /*.then((result: ISignUpResult) => {
        if(!result.userConfirmed){}
       })
-    }*/
+    }
     return { login: login, password: password }
   }
 }).then((result) => {
@@ -135,7 +135,7 @@ new swal({
   //  Password: ${result.value.password}
   //`.trim())
 })
-})}
+})}*/
 /*function logout(){
   Auth.signOut().then(result=>{
     setUserState(null);
@@ -150,7 +150,7 @@ new swal({
   displayObject(err)
 })
 }*/
-function ForgetPassword(){
+/*function ForgetPassword(){
 new Swal({
 html:`<form method="POST" required>`+`<input type="text" id="forgetlogin" class="swal2-input" placeholder="Enter your username:">
   <input type="password" id="newpassword" class="swal2-input" placeholder="Enter your new password">`+ `</form>`,
@@ -163,13 +163,4 @@ html:`<form method="POST" required>`+`<input type="text" id="forgetlogin" class=
       .catch(err => displayObject(err))
   })
     .catch(err => displayObject(err))
-}
-function displayObject(data: any) {
-  Swal.fire({
-    title: data && (data.message || data.title || ''),
-    html: `<div class="text-danger" style="text-align:left">  ${JSON.stringify(data || {}, null, 6)
-      .replace(/\n( *)/g, function (match, p1) {
-        return '<br>' + '&nbsp;'.repeat(p1.length);
-      })}</div>`
-  })
-}
+}*/

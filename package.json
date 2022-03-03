@@ -1,5 +1,14 @@
 {
   "dependencies": {
-    "mysql": "^2.18.1"
+    "amazon-cognito-identity-js": "^5.2.6",
+    "amazon-cognito-js": "^1.1.0",
+    "aws-amplify": "^4.3.14",
+    "aws-sdk": "^2.1082.0",
+    "mysql": "^2.18.1",
+    "sweetalert2": "^11.4.4",
+    "typescript": "^4.5.5"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.21"
   }
 }
