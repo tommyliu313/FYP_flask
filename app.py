@@ -74,14 +74,27 @@ def modal():
 def logout():
     return render_template('logout.html')
 
+@app.route('/restaurantaddmethod')
+def resirectrestaurant():
+    return render_template('addrestaurantmethod.html')
+
 #@app.route('/formregister',methods=["GET"])
 #def register():
 
-#@app.route('/loginstaff/<>/update',methods=["POST"])
-#
-#
-#
-#
+#@app.route('/register', methods=['POST'])
+#def register():
+#    email = request.form['email']
+#    test = User.query.filter_by(email=email).first()
+#    if test:
+#        return jsonify(message='That email already exists.'), 409
+#    else:
+#        first_name = request.form['first_name']
+#        last_name = request.form['last_name']
+#        password = request.form['password']
+#        user = User(first_name=first_name, last_name=last_name, email=email, password=password)
+#        db.session.add(user)
+#        db.session.commit()
+#      return jsonify(message="User created successfully."), 201
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=5000) #該app會此界面的0.0.0.0的5000埠上運行所以你要額外在securitygroup上
