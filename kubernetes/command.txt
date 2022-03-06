@@ -1,2 +1,5 @@
 這裏暫時預備要執行的command.
 當預備充足才執行。
+
+顯示pod名稱
+kubectl get pods

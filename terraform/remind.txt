@@ -1,0 +1,4 @@
+提交三部曲
+terraform init
+terraform plan
+terraform apply
