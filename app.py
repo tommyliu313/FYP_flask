@@ -65,15 +65,14 @@ def page_not_found(e):
 @app.errorhandler(500)
 def infernal_server_error(e):
     return render_template('./error/error.html',ErrorStatus=500),500
-@bp.route('/',methods = ['post'])
-def registerform():
-    if request.method == 'POST':
-        mockdb1 = {}
-        if os.path.exists('collectioninspiredbymodule13/folder1/mockdb.json'):
-             with open('mockdb1.json') as mockdb1file:
-                mockdb1 = json.load(mockdb1)
-                if
-        if request.form['name'] in mockdb1.keys():
+#@bp.route('/',methods = ['post'])
+#def registerform():
+#   if request.method == 'POST':
+#        mockdb1 = {}
+#        if os.path.exists('collectioninspiredbymodule13/folder1/mockdb.json'):
+#             with open('mockdb1.json') as mockdb1file:
+#                mockdb1 = json.load(mockdb1)
+#        if request.form['name'] in mockdb1.keys():
 
 # 頁面導向
 @app.route('/formregister')
