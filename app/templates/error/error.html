@@ -1,0 +1,13 @@
+{% include './navbar.html' %}
+{% block page_content %}
+<link rel="stylesheet" href="{{ url_for('static',filename='css/errorpage/errorpage.css') }}">
+    <div class="box">
+    <div class="block"><div class="word">{% if ErrorStatus %}{{ ErrorStatus }}{% endif %}</div></div>
+    <div class="whitebox1">
+        <div class="word"><h1>Sorry, The Page that you found is not existed.</h1></div>
+    </div>
+    <div class="whitebox2">
+        <div class="word"><h1>Maybe the page is not available now or has been deleted ...... or other reasons. It is recommended that you go back the previous page.</h1></div>
+    </div>
+    </div>
+{% endblock %}

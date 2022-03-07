@@ -56,11 +56,11 @@ def aboutus():
 # 錯誤處理
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('./error/404.html'),404
+    return render_template('./error/error.html',ErrorStatus=404),404
     
 @app.errorhandler(500)
 def infernal_server_error(e):
-    return render_template('./error/500.html'),500
+    return render_template('./error/error.html',ErrorStatus=500),500
 #@app.route('/',methods = ['post'])
 #def ():
 

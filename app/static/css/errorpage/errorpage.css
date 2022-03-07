@@ -1,0 +1,48 @@
+.box{
+    height: 323px;
+    width: 1501px;
+    left: 209px;
+    top: 252px;
+    border-radius: 80px;
+    background: #C4C4C4;
+    position: relative;
+}
+
+.block{
+    position: relative;
+    width: 320px;
+    height: 201px;
+    left: 69px;
+    top: 50px;
+    background: #F91818;
+}
+.whitebox1{
+    position: relative;
+    width: 800px;
+    height: 77px;
+    left: 497px;
+    bottom: 200px;
+    background: #FEF7F7;
+}
+.whitebox2{
+    position: relative;
+    width: 800px;
+    height: 167px;
+    left: 497px;
+    bottom: 180px;
+    background: #FEF7F7;
+}
+h1{
+    color: #000000;
+    font-size: 30px;
+    position: absolute;
+    font-family: Roboto, serif;
+    font-style: normal;
+    font-weight: normal;
+    color: #000000;
+}
+.word{
+    left: 50px;
+    text-align: center;
+    font-size: 100px;
+}
