@@ -5,3 +5,12 @@ http://[publicipv4addr]:5000/[aboutus/index/search]
 
 Figma 設計圖
 https://www.figma.com/file/Tzo2CHkWUA53I2dXtEQzK0/Untitled-(Copy)?node-id=421%3A175
+
+Codepen: Pug => Html Sass => CSS
+
+Terraform: AWS/Azure
+
+資料參考: 參考.txt
+
+collectioninspiredbymodule13:
+照著AWS Architecture 13 來做
