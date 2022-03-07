@@ -1,14 +1,15 @@
 import boto3
-from flask import Flask, jsonify, request,render_template
+from flask import Flask, jsonify, request,render_template,Blueprint
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, Float
 import os
+import json
 app = Flask(__name__,template_folder='app/templates',static_folder="app/static")
 app.secret_key = ""
 app.config['SQLALCHEMY_DATABASE_URL'] = ''
 #client = boto3.client('rds')
 
-
+bp =Blueprint('app',__name__)
 #basedir = os.path.abspath(os.path.dirname(__file__))
 #app.config['']
 
@@ -53,6 +54,9 @@ def search():
 def aboutus():
     return render_template('aboutus.html')
 
+#@bp.route('/',methods=['POST'])
+#def register():
+
 # 錯誤處理
 @app.errorhandler(404)
 def page_not_found(e):
@@ -61,8 +65,15 @@ def page_not_found(e):
 @app.errorhandler(500)
 def infernal_server_error(e):
     return render_template('./error/error.html',ErrorStatus=500),500
-#@app.route('/',methods = ['post'])
-#def ():
+@bp.route('/',methods = ['post'])
+def registerform():
+    if request.method == 'POST':
+        mockdb1 = {}
+        if os.path.exists('collectioninspiredbymodule13/folder1/mockdb.json'):
+             with open('mockdb1.json') as mockdb1file:
+                mockdb1 = json.load(mockdb1)
+                if
+        if request.form['name'] in mockdb1.keys():
 
 # 頁面導向
 @app.route('/formregister')
