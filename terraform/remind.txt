@@ -1,4 +1,6 @@
 提交三部曲
-terraform init
-terraform plan
-terraform apply
+terraform init (可以附加一些backend的1config)
+terraform plan -out xxx.tfplan //它會產生預計落成的雲端藍圖。
+terraform apply xxx.tfplan //正式落實藍圖於雲端供應商身上。
+
+Delete

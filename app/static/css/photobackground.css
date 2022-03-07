@@ -1,3 +1,10 @@
+@charset "UTF-8";
+* {
+  font-family: arial,"Microsoft JhengHei","微軟正黑體",sans-serif !important; }
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: bold; }
+
 header.jumbotron {
   text-align: center;
   background-image: url(https://static.pexels.com/photos/8807/sopot.jpg);

@@ -52,7 +52,8 @@ def search():
 @app.route('/aboutus')
 def aboutus():
     return render_template('aboutus.html')
-    
+
+# 錯誤處理
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('./error/404.html'),404
@@ -62,6 +63,8 @@ def infernal_server_error(e):
     return render_template('./error/500.html'),500
 #@app.route('/',methods = ['post'])
 #def ():
+
+# 頁面導向
 @app.route('/formregister')
 def formregister():
     return render_template('formregister.html')
@@ -78,6 +81,9 @@ def logout():
 def resirectrestaurant():
     return render_template('addrestaurantmethod.html')
 
+@app.route('/restaurant')
+def restaurant():
+    return render_template('restaurant.html')
 #@app.route('/formregister',methods=["GET"])
 #def register():
 
