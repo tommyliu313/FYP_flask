@@ -8,6 +8,7 @@ kubectl get pods
 
 Kubernetes Secret
 
+- 建立
 ```bash
-kubectl create secret generic
+kubectl create secret generic [Secret名稱]
 ```

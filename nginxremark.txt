@@ -1,0 +1,14 @@
+先建立Key Pair 然後建立EC2
+進入EC2
+sudo install nginx
+apt upgrade
+apt install nginx
+nginx -v
+systemctl status nginx [啟動Nginx]
+systemctl stop nginx [停止Nginx]
+cd /etc/nginx
+ls -ltr
+cd sites-available
+cd /var/log/nginx
+ls -ltr
+cd /var/www

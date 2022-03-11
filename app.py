@@ -65,7 +65,7 @@ def page_not_found(e):
 @app.errorhandler(500)
 def infernal_server_error(e):
     return render_template('./error/error.html',ErrorStatus=500),500
-#@bp.route('/',methods = ['post'])
+#@bp.route('/formregister',methods = ['post'])
 #def registerform():
 #   if request.method == 'POST':
 #        mockdb1 = {}
