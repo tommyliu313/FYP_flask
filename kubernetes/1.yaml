@@ -1,1 +1,13 @@
-apiVersion: v2
+kind: Service
+apiVersion: v1
+metadata:
+  name: web-frontend
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+      protocol: TCP
+  selector:
+    role: web
+  type: LoadBalancer
