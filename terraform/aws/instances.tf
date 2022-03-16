@@ -1,3 +1,4 @@
+
 resource "aws_instance" "nginx" {
   count                  = var.instance_count
   ami                    = nonsensitive(data.aws_ssm_parameter.ami.value)
