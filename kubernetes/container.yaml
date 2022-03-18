@@ -1,0 +1,28 @@
+containers:
+
+  - image: nginx
+    name: nginx
+
+    ports:
+    - name:  qwq
+      containerPort: 8080
+//Probe篇
+    readinessProbe:
+      initialDelaySeconds: 5
+      timeoutSeconds: 1
+      httpGet: 
+
+    args:
+    - [Linux Command]  
+
+    resources:
+      limits:
+        memory: 200Mi
+
+    dnsPolicy:
+
+    restartPolicy:
+
+    volumeMounts:
+      - name:
+        mountPath:

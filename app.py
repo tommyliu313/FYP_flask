@@ -96,13 +96,15 @@ def restaurant():
     return render_template('restaurant.html')
 #@bp.route('/formregister',methods=['GET','POST'])
 #def register():
+#  if :
 #  Name = request.form['name']
 #  Email = request.form['email']
 #  Password = request.form['password']
+#  db.session.add()
 
 #@app.route('/register', methods=['POST'])
 #def register():
-#    email = request.form['email']
+#    email = request.form['email']pip
 #    test = User.query.filter_by(email=email).first()
 #    if test:
 #        return jsonify(message='That email already exists.'), 409

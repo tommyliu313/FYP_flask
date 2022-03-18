@@ -1,0 +1,20 @@
+spec:
+  replicas: 
+  selector:
+    matchLabels:
+      app: v1 
+
+spec:
+  containers:
+
+  - image: nginx
+    name: nginx
+
+    ports:
+    - name:  qwq
+      containerPort: 8080
+
+    readinessProbe:
+      initialDelaySeconds: 5
+      timeoutSeconds: 1
+      httpGet: 
