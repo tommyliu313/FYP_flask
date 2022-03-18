@@ -1,19 +1,28 @@
 {% include "navbar.html" %}
 {% block body %}
-<i class="fas fa-lock fa-10x"></i>
-<div class="content">
-  <h1>由於你尚未登記，所以你未能造訪這個網站。請你完成以下的登記表單。</h1>
+    <style>
+    .center{
+        left: 300px;
+        position: static;
+    }
+    </style>
+<div class="container center"><i class="fas fa-lock fa-10x center"></i></div>
+
+<div class="content container is-max-widescreen">
+  <div class="notification is-primary">
+    <h1>由於你尚未登記，所以你未能造訪這個網站。請你完成以下的登記表單。</h1>
   <h1>You haven't done the registration yet. Please accomplish the following register form.</h1>
+  </div>
 </div>
-<form method="post" required>
+<form method="post" required action="register">
 <div class="field">
-  <label class="label">Name</label>
+  <label class="label notification is-primary">Name</label>
   <div class="control">
     <input class="input" type="text" placeholder="Text input" />
   </div>
 </div>
 <div class="field">
-  <label class="label">Username</label>
+  <label class="label notification is-warning">Username</label>
   <div class="control has-icons-left has-icons-right">
     <input class="input is-success" type="text" placeholder="Text input" value="bulma" /><span class="icon is-small is-left"><i class="fas fa-user"></i></span><span class="icon is-small is-right"><i class="fas fa-check"></i></span>
   </div>
