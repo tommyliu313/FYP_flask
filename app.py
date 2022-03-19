@@ -104,7 +104,8 @@ def restaurant():
 
 #@app.route('/register', methods=['POST'])
 #def register():
-#    email = request.form['email']pip
+#    email = request.form['email']
+
 #    test = User.query.filter_by(email=email).first()
 #    if test:
 #        return jsonify(message='That email already exists.'), 409
