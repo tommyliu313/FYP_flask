@@ -117,7 +117,13 @@ def restaurant():
 #        db.session.add(user)
 #        db.session.commit()
 #      return jsonify(message="User created successfully."), 201
-#  with ()
+#  with open('.json','w/r/x') as :
+#  json.dump()
+
+# 更新
+
+# 刪除
+
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=5000) #該app會此界面的0.0.0.0的5000埠上運行所以你要額外在securitygroup上
 
