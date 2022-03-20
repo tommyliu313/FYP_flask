@@ -10,7 +10,8 @@ containers:
     readinessProbe:
       initialDelaySeconds: 5
       timeoutSeconds: 1
-      httpGet: 
+      httpGet:
+
 
     args:
     - [Linux Command]  

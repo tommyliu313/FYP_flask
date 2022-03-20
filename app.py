@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, Float
 import os
 import json
+#from models import User
 app = Flask(__name__,template_folder='app/templates',static_folder="app/static")
 app.secret_key = ""
 app.config['SQLALCHEMY_DATABASE_URL'] = ''
@@ -60,11 +61,11 @@ def aboutus():
 # 錯誤處理
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('./error/error.html',ErrorStatus=404),404
+    return render_template('./error/error.html', ErrorStatus=404), 404
     
 @app.errorhandler(500)
 def infernal_server_error(e):
-    return render_template('./error/error.html',ErrorStatus=500),500
+    return render_template('./error/error.html', ErrorStatus=500), 500
 #@bp.route('/formregister',methods = ['post'])
 #def registerform():
 #   if request.method == 'POST':
@@ -85,10 +86,10 @@ def modal():
 
 @app.route('/logout')
 def logout():
-    return render_template('auth/logout.html')
+    return render_template('logout.html')
 
 @app.route('/restaurantaddmethod')
-def resirectrestaurant():
+def redirectrestaurant():
     return render_template('addrestaurantmethod.html')
 
 @app.route('/restaurant')
@@ -96,8 +97,10 @@ def restaurant():
     return render_template('page/restaurant.html')
 #@bp.route('/formregister',methods=['GET','POST'])
 #def register():
-#  if :
-#  Name = request.form['name']
+#  form = RegistrationForm()
+#  if form.validate_on_submit():
+#  User = User(email=form.email.data,username=form.username.data)
+#  request.form['name']
 #  Email = request.form['email']
 #  Password = request.form['password']
 #  db.session.add()
