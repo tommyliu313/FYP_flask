@@ -20,7 +20,7 @@ def hello_world():
     
 @app.route('/index')    
 def index():
-    return render_template('index.html')
+    return render_template('page/index.html')
     
 @app.route('/super_simple')    
 def super_simple():
@@ -52,7 +52,7 @@ def search():
     
 @app.route('/aboutus')
 def aboutus():
-    return render_template('aboutus.html')
+    return render_template('page/aboutus.html')
 
 #@bp.route('/',methods=['POST'])
 #def register():
@@ -77,7 +77,7 @@ def infernal_server_error(e):
 # 頁面導向
 @app.route('/formregister')
 def formregister():
-    return render_template('formregister.html')
+    return render_template('form/formregister.html')
 
 @app.route('/modal')
 def modal():
@@ -93,7 +93,7 @@ def resirectrestaurant():
 
 @app.route('/restaurant')
 def restaurant():
-    return render_template('restaurant.html')
+    return render_template('page/restaurant.html')
 #@bp.route('/formregister',methods=['GET','POST'])
 #def register():
 #  if :
