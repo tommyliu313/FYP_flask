@@ -1,0 +1,8 @@
+from flask_wtf import FlaskForm
+from wtforms.validators import
+from wtforms import StringField,PasswordField,BooleanField,SubmitField
+#按Flask的框架預設那些Input欄位
+#class EditProfileForm(FlaskForm):
+#    name = StringField('Real Name',validator)
+
+class

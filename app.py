@@ -85,7 +85,7 @@ def modal():
 
 @app.route('/logout')
 def logout():
-    return render_template('logout.html')
+    return render_template('auth/logout.html')
 
 @app.route('/restaurantaddmethod')
 def resirectrestaurant():
