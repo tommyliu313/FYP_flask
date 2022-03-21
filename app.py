@@ -91,7 +91,9 @@ def logout():
 @app.route('/restaurantaddmethod')
 def redirectrestaurant():
     return render_template('addrestaurantmethod.html')
-
+@app.route('/viewrestaurant')
+def viewrestaurant():
+    return render_template('viewrestaurant.html')
 @app.route('/restaurant')
 def restaurant():
     return render_template('page/restaurant.html')

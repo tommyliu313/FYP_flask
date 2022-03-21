@@ -5,10 +5,17 @@ spec:
       app: v1 
 
 spec:
+  capacity:
+    storage:
+  volumeMode:
+  accessModes:
+  persistentVolumeReclainPolicy:
   containers:
+
 
   - image: nginx
     name: nginx
+    port:
 
     ports:
     - name:  qwq
