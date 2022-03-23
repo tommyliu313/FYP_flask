@@ -1,10 +1,10 @@
 # Import Module
-import boto3
+# import boto3
 from flask import Flask, jsonify, request,render_template,Blueprint,session
-from flask_sqlalchemy import SQLAlchemy
+#from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, Float
 from flask_jwt_extended import JWTManager, jwt_required,create_access_token
-from flask_marshmallow import Marshmallow
+#from flask_marshmallow import Marshmallow
 import os
 import json
 #from models import User
@@ -19,13 +19,14 @@ bp =Blueprint('app',__name__)
 #basedir = os.path.abspath(os.path.dirname(__file__))
 #app.config['']
 
-db = SQLAlchemy()
-ma = Marshmallow(app)
+#db = SQLAlchemy()
+#ma = Marshmallow(app)
 jwt = JWTManager(app)
-@app.cli.command('db_create')
-def db_create():
+#@app.cli.command('db_create')
+#def db_create():
 
 # 頁面導向
+
 @app.route('/')
 def hello_world():
     return 'Hello World!'
@@ -47,7 +48,7 @@ def aboutus():
 @app.route('/super_simple')    
 def super_simple():
     return jsonify(message='Hello from the Planetary API.'),200 #當伺服器的狀態碼為200就回傳此項
-    
+
 @app.route('/not_found') #你的路徑url之後增添的東西
 def not_found():
     return jsonify(message='That resource was not found'), 404 #當伺服器的狀態碼為404就回傳此項
@@ -62,7 +63,12 @@ def parameters():
         return jsonify(message='Welcome'+ name +',you are old enough!'), 200
 
 
-
+@app.route('/redirectrestaurant')
+def redirectrestaurant():
+    return render_template('addrestaurantmethod.html')
+@app.route('/table')
+def table():
+    return render_template('page/table.html')
 #@bp.route('/',methods=['POST'])
 #def register():
 
@@ -121,8 +127,8 @@ def url_variables(name:str,age:int):
 
 # 刪除
 # Database Model
-class User(db.Model):
-    __tablename__ = ''
+#class User(db.Model):
+#    __tablename__ = ''
 
 @app.route('/api')
 def session_api():

@@ -4,8 +4,8 @@
     <link rel="stylesheet" href="{{ url_for('static',filename='css/photobackground.css') }}">
     <header class="jumbotron">
         <div class="container">
-            <h3>城市向隅</h3> <!--營業時間-->
-            <h1>餘光，啟航</h1> <!-- 地址-->
+            <h3>{% if %}{{ availabletime }}{% endif %}</h3> <!--營業時間--><!--城市向隅-->
+            <h1>{% if %}{{ 123 }} {% endif %}</h1> <!-- 地址--><!--餘光，啟航-->
         </div>
     </header>
 
