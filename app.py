@@ -133,6 +133,11 @@ def url_variables(name:str,age:int):
 @app.route('/api')
 def session_api():
     return jsonify(list(session.keys()))
+
+@app.route('/page/restaurant/<int:id>')
+def restaurant(id:int):
+    return render_template('page/restaurant.html', id=id)
+
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=5000) #該app會此界面的0.0.0.0的5000埠上運行所以你要額外在securitygroup上
 
