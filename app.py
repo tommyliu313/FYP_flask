@@ -1,5 +1,5 @@
 import boto3
-from flask import Flask, jsonify, request,render_template,Blueprint
+from flask import Flask, jsonify, request,render_template,Blueprint,session
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, Float
 import os
@@ -97,6 +97,10 @@ def viewrestaurant():
 @app.route('/restaurant')
 def restaurant():
     return render_template('page/restaurant.html')
+
+@app.route('/table')
+def table():
+    return render_template('page/table.html')
 #@bp.route('/formregister',methods=['GET','POST'])
 #def register():
 #  form = RegistrationForm()
@@ -129,6 +133,9 @@ def restaurant():
 
 # 刪除
 
+@app.route('/api')
+def session_api():
+    return jsonify(list(session.keys()))
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=5000) #該app會此界面的0.0.0.0的5000埠上運行所以你要額外在securitygroup上
 
