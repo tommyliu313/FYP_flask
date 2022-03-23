@@ -1,20 +1,31 @@
+# Import Module
 import boto3
 from flask import Flask, jsonify, request,render_template,Blueprint,session
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, Float
+from flask_jwt_extended import JWTManager, jwt_required,create_access_token
+from flask_marshmallow import Marshmallow
 import os
 import json
 #from models import User
+# Configuration
 app = Flask(__name__,template_folder='app/templates',static_folder="app/static")
 app.secret_key = ""
 app.config['SQLALCHEMY_DATABASE_URL'] = ''
+app.config['JWT_SECRET_KEY'] = ''
 #client = boto3.client('rds')
 
 bp =Blueprint('app',__name__)
 #basedir = os.path.abspath(os.path.dirname(__file__))
 #app.config['']
 
+db = SQLAlchemy()
+ma = Marshmallow(app)
+jwt = JWTManager(app)
+@app.cli.command('db_create')
+def db_create():
 
+# 頁面導向
 @app.route('/')
 def hello_world():
     return 'Hello World!'
@@ -22,7 +33,17 @@ def hello_world():
 @app.route('/index')    
 def index():
     return render_template('page/index.html')
-    
+
+
+@app.route('/search')
+def search():
+    return render_template('search.html')
+
+
+@app.route('/aboutus')
+def aboutus():
+    return render_template('page/aboutus.html')
+
 @app.route('/super_simple')    
 def super_simple():
     return jsonify(message='Hello from the Planetary API.'),200 #當伺服器的狀態碼為200就回傳此項
@@ -39,21 +60,8 @@ def parameters():
         return jsonify(message='Sorry '+ name + ', you are not old enough.'),401
     else:
         return jsonify(message='Welcome'+ name +',you are old enough!'), 200
-        
-@app.route('/url_variables/<string:name>/<int:age>')
-def url_variables(name:str,age:int):
-    if age < 18:
-        return jsonify(message='Sorry '+ name + ', you are not old enough.'),401
-    else:
-        return jsonify(message='Welcome'+ name +',you are old enough!'), 200
-    
-@app.route('/search')
-def search():
-    return render_template('search.html')
-    
-@app.route('/aboutus')
-def aboutus():
-    return render_template('page/aboutus.html')
+
+
 
 #@bp.route('/',methods=['POST'])
 #def register():
@@ -75,32 +83,6 @@ def infernal_server_error(e):
 #                mockdb1 = json.load(mockdb1)
 #        if request.form['name'] in mockdb1.keys():
 
-# 頁面導向
-@app.route('/formregister')
-def formregister():
-    return render_template('form/formregister.html')
-
-@app.route('/modal')
-def modal():
-    return render_template('modal.html')
-
-@app.route('/logout')
-def logout():
-    return render_template('logout.html')
-
-@app.route('/restaurantaddmethod')
-def redirectrestaurant():
-    return render_template('addrestaurantmethod.html')
-@app.route('/viewrestaurant')
-def viewrestaurant():
-    return render_template('viewrestaurant.html')
-@app.route('/restaurant')
-def restaurant():
-    return render_template('page/restaurant.html')
-
-@app.route('/table')
-def table():
-    return render_template('page/table.html')
 #@bp.route('/formregister',methods=['GET','POST'])
 #def register():
 #  form = RegistrationForm()
@@ -129,9 +111,18 @@ def table():
 #  with open('.json','w/r/x') as :
 #  json.dump()
 
+@app.route('/url_variables/<string:name>/<int:age>')
+def url_variables(name:str,age:int):
+    if age < 18:
+        return jsonify(message='Sorry '+ name + ', you are not old enough.'),401
+    else:
+        return jsonify(message='Welcome'+ name +',you are old enough!'), 200
 # 更新
 
 # 刪除
+# Database Model
+class User(db.Model):
+    __tablename__ = ''
 
 @app.route('/api')
 def session_api():
