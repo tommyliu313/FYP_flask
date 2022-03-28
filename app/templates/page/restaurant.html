@@ -8,9 +8,21 @@
             {% if id %}{{ id }}{% endif %}
     </header>
     <div class="columns">
-    <div class="column is-4"><p class="wording">{% if restaurant %}{{ restaurant }}{% endif %}</div>
-    <div class="column is-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores atque, beatae cumque dicta doloremque excepturi expedita fugiat harum, id illo maxime natus omnis perferendis quod reprehenderit soluta tempora. Dignissimos, voluptatibus.</div>
+        <div class="column is-8">
+            <div class="columns">
+    <div class="column is-full"><p class="wording">{% if restaurant %}{{ restaurant }}{% endif %}</div>
     </div>
+            <br>
+        <div class="columns">
+            <div class="column is-full">
+                <img src="https://picsum.photos/536/354" alt=""></div>
+        </div>
+        </div>
+        <div class="column is-4">
+            <img src="https://picsum.photos/536/354" alt="">
+        </div>
+    </div>
+    div.columns.div
 
 {% endblock %}
 
