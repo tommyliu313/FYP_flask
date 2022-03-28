@@ -2,10 +2,15 @@
 <link rel="stylesheet" href="{{ url_for('static',filename='css/restaurant.css') }}">
 {% block content %}
     <link rel="stylesheet" href="{{ url_for('static',filename='css/photobackground.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/restaurant.css') }}">
     <header class="jumbotron">
-        {% if id %}{{ id }}{% endif %}
+        {% if id %}{{ id }}{% endif %}<br>
+            {% if id %}{{ id }}{% endif %}
     </header>
-
+    <div class="columns">
+    <div class="column is-4"><p class="wording">{% if restaurant %}{{ restaurant }}{% endif %}</div>
+    <div class="column is-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores atque, beatae cumque dicta doloremque excepturi expedita fugiat harum, id illo maxime natus omnis perferendis quod reprehenderit soluta tempora. Dignissimos, voluptatibus.</div>
+    </div>
 
 {% endblock %}
 
