@@ -1,26 +1,26 @@
 # Import Module
 # import boto3
 from flask import Flask, jsonify, request,render_template,Blueprint,session
-#from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, Float
 from flask_jwt_extended import JWTManager, jwt_required,create_access_token
-#from flask_marshmallow import Marshmallow
+from flask_marshmallow import Marshmallow
 import os
 import json
 #from models import User
 # Configuration
 app = Flask(__name__,template_folder='app/templates',static_folder="app/static")
 app.secret_key = ""
-app.config['SQLALCHEMY_DATABASE_URL'] = ''
+basedir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'mockdatabase.db')
 app.config['JWT_SECRET_KEY'] = ''
 #client = boto3.client('rds')
 
 bp =Blueprint('app',__name__)
-#basedir = os.path.abspath(os.path.dirname(__file__))
 #app.config['']
 
-#db = SQLAlchemy()
-#ma = Marshmallow(app)
+db = SQLAlchemy()
+ma = Marshmallow(app)
 jwt = JWTManager(app)
 #@app.cli.command('db_create')
 #def db_create():
@@ -141,7 +141,10 @@ def restaurant(id:int,restaurant:str):
 @app.route('/page/viewrestaurant')
 def viewrestaurant():
     return render_template('viewrestaurant.html')
-
+#數據庫
+#class (db.Model):
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=5000) #該app會此界面的0.0.0.0的5000埠上運行所以你要額外在securitygroup上
+
+# ssl_context='adhoc'
 
