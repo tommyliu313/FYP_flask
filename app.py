@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, Float
 from flask_jwt_extended import JWTManager, jwt_required,create_access_token
 from flask_marshmallow import Marshmallow
+from flask_s3 import FlaskS3
 import os
 import json
 #from models import User
@@ -109,6 +110,7 @@ def infernal_server_error(e):
 #    else:
 #        first_name = request.form['first_name']
 #        last_name = request.form['last_name']
+#        email = request.form['']
 #        password = request.form['password']
 #        user = User(first_name=first_name, last_name=last_name, email=email, password=password)
 #        db.session.add(user)
