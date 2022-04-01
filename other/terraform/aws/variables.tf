@@ -8,3 +8,10 @@ variable "instance_type" {
   description = "Type for EC2 Instance"
   default     = "t2.micro"
 }
+variable "access_key"{
+
+}
+
+variable "secret_key" {
+
+}

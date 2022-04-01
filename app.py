@@ -1,3 +1,4 @@
+# 引入模組
 # Import Module
 # import boto3
 from flask import Flask, jsonify, request,render_template,Blueprint,session
@@ -9,7 +10,7 @@ from flask_s3 import FlaskS3
 import os
 import json
 #from models import User
-# Configuration
+# Configuration 設定
 app = Flask(__name__,template_folder='app/templates',static_folder="app/static")
 app.secret_key = ""
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -81,6 +82,34 @@ def page_not_found(e):
 @app.errorhandler(500)
 def infernal_server_error(e):
     return render_template('./error/error.html', ErrorStatus=500), 500
+
+
+# 更新
+
+# 刪除
+# Database Model
+#class User(db.Model):
+#    __tablename__ = ''
+
+@app.route('/api')
+def session_api():
+    return jsonify(list(session.keys()))
+
+@app.route('/page/restaurant/<int:id>/<string:restaurant>')
+def restaurant(id:int,restaurant:str):
+    return render_template('page/restaurant.html', id=id,restaurant=restaurant)
+
+@app.route('/page/viewrestaurant')
+def viewrestaurant():
+    return render_template('viewrestaurant.html')
+#數據庫
+#class (db.Model):
+if __name__ == '__main__':
+    app.run(debug=True,host='0.0.0.0',port=5000) #該app會此界面的0.0.0.0的5000埠上運行所以你要額外在securitygroup上
+
+# ssl_context='adhoc'
+
+#可能的方案
 #@bp.route('/formregister',methods = ['post'])
 #def registerform():
 #   if request.method == 'POST':
@@ -119,34 +148,10 @@ def infernal_server_error(e):
 #  with open('.json','w/r/x') as :
 #  json.dump()
 
+# 例子
 @app.route('/url_variables/<string:name>/<int:age>')
 def url_variables(name:str,age:int):
     if age < 18:
         return jsonify(message='Sorry '+ name + ', you are not old enough.'),401
     else:
         return jsonify(message='Welcome'+ name +',you are old enough!'), 200
-# 更新
-
-# 刪除
-# Database Model
-#class User(db.Model):
-#    __tablename__ = ''
-
-@app.route('/api')
-def session_api():
-    return jsonify(list(session.keys()))
-
-@app.route('/page/restaurant/<int:id>/<string:restaurant>')
-def restaurant(id:int,restaurant:str):
-    return render_template('page/restaurant.html', id=id,restaurant=restaurant)
-
-@app.route('/page/viewrestaurant')
-def viewrestaurant():
-    return render_template('viewrestaurant.html')
-#數據庫
-#class (db.Model):
-if __name__ == '__main__':
-    app.run(debug=True,host='0.0.0.0',port=5000) #該app會此界面的0.0.0.0的5000埠上運行所以你要額外在securitygroup上
-
-# ssl_context='adhoc'
-

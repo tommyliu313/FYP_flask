@@ -12,3 +12,4 @@ Kubernetes Secret
 ```bash
 kubectl create secret generic [Secret名稱]
 ```
+

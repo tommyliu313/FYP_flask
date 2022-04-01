@@ -9,3 +9,7 @@ https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-flas
 https://medium.com/@gacheruevans0/2-tier-vs-3-tier-architecture-26db56fe7e9c
 
 https://medium.com/@charming_rust_oyster_221/flask-%E9%85%8D%E7%BD%AE-https-%E7%B6%B2%E7%AB%99-ssl-%E5%AE%89%E5%85%A8%E8%AA%8D%E8%AD%89-36dfeb609fa8
+
+https://www.digitalocean.com/community/tutorials/how-to-use-web-forms-in-a-flask-application
+
+https://blog.miniasp.com/post/2019/02/25/Creating-Self-signed-Certificate-using-OpenSSL
