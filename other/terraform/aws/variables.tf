@@ -15,3 +15,13 @@ variable "access_key"{
 variable "secret_key" {
 
 }
+
+variable "private_subnet"{
+type = string
+default = ""
+  #
+}
+
+variable "public_subnet"{
+
+}
