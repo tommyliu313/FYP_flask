@@ -17,11 +17,17 @@ variable "secret_key" {
 }
 
 variable "private_subnet"{
-type = string
-default = ""
-  #
+type = list(string)
+default = [""]
 }
 
 variable "public_subnet"{
+type = list(string)
+default = [""]
+}
+variable "region1"{
+
+}
+variable "region2"{
 
 }
