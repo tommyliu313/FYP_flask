@@ -17,3 +17,11 @@ variable "vnet_cidr_range"{
 variable "subnet_prefixes"{
   type = list(string)
 }
+
+variable "subnet_names" {
+
+}
+
+variable "resource_group_name" {
+
+}
