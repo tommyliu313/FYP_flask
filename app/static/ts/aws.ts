@@ -35,21 +35,53 @@ function Login(){
   document.getElementById("login").addEventListener('click',function(){
 
   
-  return Swal.fire({
+  // @ts-ignore
+    return Swal.fire({
   title: 'Login Form',
   html: `<form method="POST" required>`+`<input type="text" id="login" class="swal2-input" placeholder="Username">
   <input type="password" id="password" class="swal2-input" placeholder="Password">`+`<button class="swal2-input" onclick="ForgetPassword()">`+`<p>Forget Password?</p>`+`</button>`+`</form>`+`<button class="swal2-input" onClick="turnon()">`+`<i class="far fa-eye">`+`</i>`+`</button>`+`<div>`+`<button class="swal2-input" onclick="ongoogle()">`+`<i class="fab fa-google">`+`</i>`+`</button>`+`<button class="swal2-input">`+`<i class="fab fa-facebook-square">`+`</i>`+`</button>`+`</div>`,
   confirmButtonText: 'Sign in',
   focusConfirm: false,
   preConfirm: () => {
-    const login = Swal.getPopup().querySelector('#login');
-    const password = Swal.getPopup().querySelector('#password');
-    if (!login){Swal.showValidationMessage(`請你輸入電子郵件<br>Please enter email`)}
-    if (!password){Swal.showValidationMessage(`請你輸入密碼<br>Please enter password`)}
-    if (!login && !password) {
+    let userdata={
+      login = Swal.getPopup().querySelector('#login'),
+     password = Swal.getPopup().querySelector('#password'),}
+    if (!userdata.login){Swal.showValidationMessage(`請你輸入電子郵件<br>Please enter email`)}
+    if (!userdata.password){Swal.showValidationMessage(`請你輸入密碼<br>Please enter password`)}
+    if (!userdata.login && !userdata.password) {
       Swal.showValidationMessage(`請你輸入電子郵件及密碼<br>Please enter login and password`)
     }
-}})});
+}}).then((result,userdata.login,userdata.password)=>{
+  if(result.isConfirmed){
+    Auth.signIn(userdata.login.value,userdata.password.value).then(async (result: any) => {
+
+    if (result.challengeName == 'SOFTWARE_TOKEN_MFA') {
+
+      var verificationCode = prompt('Enter your TOTP token');
+
+      Auth.confirmSignIn(result, verificationCode, 'SOFTWARE_TOKEN_MFA').then(confirmSigninResult => {
+        getCurrentUser()
+      })
+        .catch(err => { displayObject(err); })
+    }
+    else {
+      getCurrentUser()
+    }
+    toggleModal('login', false)
+
+  }).catch(err => {
+    if (err.code == "UserNotConfirmedException") {
+      currentUserName = userData.username
+      toggleModal('confirm', true)
+    }
+    else {
+      displayObject(err)
+    }
+  }
+  })}
+  )
+
+  });
 }
 
 function ForgetPassword(){
@@ -70,8 +102,6 @@ var newpasswordprompt = Swal.fire({html:`<input type="password" id="newpassword"
 
 
 
-
-
 function setUserState(user: any) {
   var usernamePlaceholder = document.getElementById('username-placeholder');
   var loginButton = document.getElementById('login-button');
@@ -88,4 +118,20 @@ function setUserState(user: any) {
     loginButton.style.display = 'none'
     logoutButton.style.display = 'block'
   }
+}
+
+async function getCurrentUser(): Promise<CognitoUser> {
+  try {
+
+    var currentUser = <CognitoUser>(await Auth.currentAuthenticatedUser());
+    console.log('getCurrentUser', currentUser);
+
+    setUserState(currentUser)
+    return currentUser
+  }
+  catch (err) {
+    console.log('Error loading user', err);
+    setUserState(null)
+  }
+
 }

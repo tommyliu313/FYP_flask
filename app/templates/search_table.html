@@ -1,1 +1,36 @@
 <link rel="stylesheet" href="{{ url_for('static',filename='css/bulma.min.css') }}">
+
+
+{% for in  %}
+<div id="app">
+    <div class="container">
+      <div class="card mx-auto mt-2" style="width: rem;">
+        <img src="image" id="photo">
+        <div class="card-body">
+          <h5 class="card-title">{{news.title}}</h5>
+          <p class="card-text">{{news.abstract}}</p>
+        </div>
+        <div class="is-flex p-2">地區:</div>
+        <div class="container">
+          <div class="columns card-content">
+            <div class="column" id="waittime" @mouseover='mouseOver'>
+              <i class="fas fa-clock fa-4x"></i>
+              <p v-show="active">{{news.title}}分鐘</p>
+            </div>
+            <div class="column" @mouseover='mouseOver'>
+              <i class="fas fa-phone fa-4x"></i>
+              <p v-show="active">{{news.title}}分鐘</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-content">
+          <ul class= "panel list-group list-group-flush">
+                <li class="panel list-group-item button is-info" style="color:#ff0f"><i class="fas fa-comment-alt"></i>等位 Click to wait queue online</li>
+                <li class="panel list-group-item button is-info breakWord"><i class="fas fa-info"></i>查看更多資料 Click to see more information</li>
+          </ul>
+        </div>
+  </div>
+    </div>
+  </div>
+{% endfor %}
+{}

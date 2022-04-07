@@ -3,6 +3,7 @@
 # import boto3
 from flask import Flask, jsonify, request,render_template,Blueprint,session
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 from sqlalchemy import Column, Integer, String, Float
 from flask_jwt_extended import JWTManager, jwt_required,create_access_token
 from flask_marshmallow import Marshmallow
@@ -21,7 +22,7 @@ app.config['JWT_SECRET_KEY'] = ''
 bp =Blueprint('app',__name__)
 #app.config['']
 
-db = SQLAlchemy()
+db = SQLAlchemy(app)
 ma = Marshmallow(app)
 jwt = JWTManager(app)
 #@app.cli.command('db_create')

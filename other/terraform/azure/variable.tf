@@ -25,3 +25,11 @@ variable "subnet_names" {
 variable "resource_group_name" {
 
 }
+
+variable "public_subnet"{
+
+}
+
+variable "private_subnet"{
+
+}
