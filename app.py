@@ -41,7 +41,7 @@ def index():
 
 @app.route('/search') #指明路徑
 def search():
-    return render_template('search.html')
+    return render_template('page/search.html')
 
 
 @app.route('/aboutus') #指明路徑
@@ -68,7 +68,7 @@ def parameters():
 
 @app.route('/redirectrestaurant') #指明路徑
 def redirectrestaurant():
-    return render_template('addrestaurantmethod.html')
+    return render_template('page/addrestaurantmethod.html')
 
 @app.route('/table') #指明路徑
 def table():
@@ -103,7 +103,7 @@ def restaurant(id:int,restaurant:str):
 
 @app.route('/page/viewrestaurant') #指明路徑
 def viewrestaurant():
-    return render_template('viewrestaurant.html')
+    return render_template('page/viewrestaurant.html')
 #數據庫
 #class Name(db.Model):
 # __tablename__ = 'posts'
