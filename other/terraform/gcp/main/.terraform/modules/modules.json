@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"gcloud","Source":"terraform-google-modules/gcloud/google","Version":"2.1.0","Dir":".terraform/modules/gcloud"}]}

@@ -1,6 +1,5 @@
 variable "subscription_id" {
-  type = ,
-  default = []
+  type = string
 }
 variable "client_id"{
 
@@ -9,7 +8,8 @@ variable "client_secret"{
 
 }
 variable "location"{
-
+ type = string
+ default = "eastus"
 }
 variable "vnet_cidr_range"{
 
@@ -22,14 +22,16 @@ variable "subnet_names" {
 
 }
 
-variable "resource_group_name" {
-
-}
 
 variable "public_subnet"{
-
+type = string
 }
 
 variable "private_subnet"{
+ type = string,
+}
 
+variable "resource_group_name" {
+  type = string,
+  default =
 }
