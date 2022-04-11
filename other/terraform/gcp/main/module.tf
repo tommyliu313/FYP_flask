@@ -10,3 +10,11 @@ module "gcloud" {
   destroy_cmd_entrypoint = "gcloud"
   destroy_cmd_body       = "version"
 }
+
+module "cloud-nat" {
+  source     = "terraform-google-modules/cloud-nat/google"
+  version    = "~> 1.2"
+  project_id = var.project_id
+  region     = var.region
+  router     = google_compute_router.router.name
+}

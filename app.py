@@ -99,16 +99,22 @@ def session_api():
 
 @app.route('/page/restaurant/<int:id>/<string:restaurant>') #指明路徑
 def restaurant(id:int,restaurant:str):
+
     return render_template('page/restaurant.html', id=id,restaurant=restaurant)
 
 @app.route('/page/viewrestaurant') #指明路徑
 def viewrestaurant():
     return render_template('page/viewrestaurant.html')
 #數據庫
-#class Name(db.Model):
-# __tablename__ = 'posts'
-# id = db.Column(db.Text,primary_key=True)
+#class customer(db.Model):
+# __tablename__ = 'customerinfo'
+# custid = db.Column(db.String(4),primary_key=True)
+# statid = db.Column(db.String(4))
+# isrequested = db.Column(db.)
 
+
+#@app.route('')
+#@login_required
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=5000) #該app會此界面的0.0.0.0的5000埠上運行所以你要額外在securitygroup上

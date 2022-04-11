@@ -2,6 +2,11 @@ module "vpc"{
 
 }
 
+resource "aws_vpc""vpc"{
+  cidr_block = var.cidr_block
+}
+
+data "aws_availability_zone"
 resource "aws_security_group" "nginx-sg" {
   name   = "${local.name_prefix}-nginx_sg"
   vpc_id = aws_vpc.vpc.id
@@ -23,4 +28,7 @@ resource "aws_security_group" "nginx-sg" {
   }
 
   tags = local.common_tags
+}
+resource "aws_subnet"{
+  availability_zone = ""
 }

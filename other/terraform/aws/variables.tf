@@ -3,6 +3,11 @@ variable "aws_region"{
   description = "Region for AWS Resources"
   default = "us-east-1"
 }
+variable "aws_region2"{
+  type = string
+  description = "Region for AWS Resources"
+  default = "us-east-2"
+}
 variable "instance_type" {
   type        = string
   description = "Type for EC2 Instance"
@@ -18,16 +23,13 @@ variable "secret_key" {
 
 variable "private_subnet"{
 type = list(string)
-default = [""]
+default = ["10.0.2.0/24","10.0.3.0/24"]
 }
 
 variable "public_subnet"{
 type = list(string)
-default = [""]
+default = ["10.0.0.0/24","10.0.1.0/24"]
 }
-variable "region1"{
-
-}
-variable "region2"{
-
+variable "cidr_block"{
+  default = "10.0.0.0/16"
 }
