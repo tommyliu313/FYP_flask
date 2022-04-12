@@ -12,4 +12,10 @@ resource "google_compute_subnetwork" "default"{
   name = var.network_name
   ip_cidr_range = var.vnet_cidr_range
   network = var.network
+  region = var.region
+}
+
+resource "google_compute_address" "default"{
+  name = var.network_name
+  region = var.region
 }

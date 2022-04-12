@@ -13,3 +13,8 @@ provider "google" {
   region  = var.region
   zone    = var.zone
 }
+
+provider "kubernetes"{
+  version = "~> 1.10.0"
+  host = google_container_cluster.default.endpoint
+}

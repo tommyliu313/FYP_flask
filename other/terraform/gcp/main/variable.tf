@@ -42,5 +42,9 @@ variable "machine_type"{
 }
 
 variable "network_name"{
-  default = ""
+  default = "tf-gke-k8s"
+}
+
+variable "region"{
+  default = "us-west1"
 }
