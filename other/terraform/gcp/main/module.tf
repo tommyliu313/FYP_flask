@@ -18,3 +18,13 @@ module "cloud-nat" {
   region     = var.region
   router     = google_compute_router.router.name
 }
+
+module "load_balancer" {
+  source       = "GoogleCloudPlatform/lb/google"
+  version      = "~> 2.0.0"
+  region       = var.region
+  name         = "load-balancer"
+  service_port = 80
+  target_tags  = ["allow-lb-service"]
+  network      = var.network
+}

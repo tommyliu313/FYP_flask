@@ -105,6 +105,10 @@ def restaurant(id:int,restaurant:str):
 @app.route('/page/viewrestaurant') #指明路徑
 def viewrestaurant():
     return render_template('page/viewrestaurant.html')
+
+@app.route('/waitstatview')
+def waitstatview():
+    return render_template('page/waitstatview.html')
 #數據庫
 #class customer(db.Model):
 # __tablename__ = 'customerinfo'
