@@ -9,7 +9,7 @@ variable "client_secret"{
 }
 variable "location"{
  type = string
- default = "eastus"
+ default = "us-east-1a"
 }
 variable "vnet_cidr_range"{
 
@@ -29,8 +29,18 @@ type = string
 
 variable "private_subnet"{
  type = string,
+  default =
 }
 
 variable "project_id"{
+type = string,
 
+}
+variable "machine_type"{
+  type = string
+
+}
+
+variable "network_name"{
+  default = ""
 }
