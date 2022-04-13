@@ -1,0 +1,9 @@
+"Namespace"
+kubectl create namespace [namespace.name]
+
+""
+kubectl run mypod --image=nginx:2.3.5 --restart=Never --port=80 --namespace=ckad-prep
+
+"Secret"
+
+kubectl create secret

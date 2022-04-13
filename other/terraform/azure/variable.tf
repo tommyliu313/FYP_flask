@@ -33,5 +33,5 @@ variable "private_subnet"{
 
 variable "resource_group_name" {
   type = string,
-  default =
+  default = ""
 }

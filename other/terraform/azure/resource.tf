@@ -16,3 +16,7 @@ resource "azurerm_virtual_machine" "main"{
   resource_group_name = azurerm_resource_group.app.name
   vm_size = "Standard_DS1_v2"
 }
+resource "azurerm_resource_group" "example" {
+  name     = "my-resources"
+  location = "West Europe"
+}
