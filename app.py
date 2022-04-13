@@ -116,6 +116,15 @@ def waitstatview():
 # statid = db.Column(db.String(4))
 # isrequested = db.Column(db.)
 
+#class queuestat(db.Model):
+# __tablename__ = 'queuestat'
+# queueid = db.Column(1)
+# iswaitstat = db.Column(1)
+# iscancelstat = db.Column(1)
+# stattime = db.Column(1)
+# waitperson = db.DateTime()
+
+#class request(
 
 #@app.route('')
 #@login_required
