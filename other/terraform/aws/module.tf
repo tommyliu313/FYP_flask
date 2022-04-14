@@ -22,3 +22,17 @@ module "autoscaling" {
   name = ""
 }
 
+module "alb" {
+  source  = "terraform-aws-modules/alb/aws"
+  version = "6.8.0"
+  # insert the 4 required variables here
+}
+
+module "asg"{
+  source = "terraform-aws-modules/autoscaling/aws"
+  name = ""
+  min_size =
+  max_size =
+  desired_capacity =
+
+}

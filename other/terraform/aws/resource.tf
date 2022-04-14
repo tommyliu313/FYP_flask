@@ -69,7 +69,7 @@ resource "aws_security_group" "nginx-sg" {
 
   tags = local.common_tags
 }
-resource "aws_subnet" ""{
+resource "aws_subnet" "123" {
   availability_zone = ""
 }
 
@@ -84,8 +84,6 @@ resource "aws_s3_bucket_object" "website" {
 
   tags = local.common_tags
 }
-
-
 resource "aws_instance" "nginx" {
   count                  = var.instance_count
   ami                    = nonsensitive(data.aws_ssm_parameter.ami.value)
@@ -103,4 +101,7 @@ resource "aws_instance" "nginx" {
     Name = "${local.name_prefix}-nginx-${count.index}"
   })
 
+}
+resource "aws_internet_gateway" "gw" {
+  vpc_id =
 }
