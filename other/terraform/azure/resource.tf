@@ -15,8 +15,16 @@ resource "azurerm_virtual_machine" "main"{
   location = azurerm_resource_group_app.location
   resource_group_name = azurerm_resource_group.app.name
   vm_size = "Standard_DS1_v2"
+  network_interface_ids = []
+  storage_os_disk {}
 }
 resource "azurerm_resource_group" "example" {
   name     = "my-resources"
   location = "West Europe"
+}
+resource "azurerm_virtual_network" "example"{
+  name = ""
+  address_space = [""]
+  location =
+  resource_group_name =
 }

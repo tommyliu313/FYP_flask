@@ -124,7 +124,13 @@ def waitstatview():
 # stattime = db.Column(1)
 # waitperson = db.DateTime()
 
-#class request(
+# class request(db.Model):
+# __tablename__ = 'request'
+# requestid = db.Column
+# Customercusid = db.Column
+
+# class ReastaurantInfo(db.Model):
+#
 
 #@app.route('')
 #@login_required

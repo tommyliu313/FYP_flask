@@ -19,3 +19,17 @@ module "network" {
 
   depends_on = [azurerm_resource_group.example]
 }
+module "loadbalancer" {
+  source  = "Azure/loadbalancer/azurerm"
+  version = "3.4.0"
+  # insert the 1 required variable here
+}
+module "ecr" {
+  source = "cloudposse/ecr/aws"
+  # Cloud Posse recommends pinning every module to a specific version
+  # version     = "x.x.x"
+  namespace              = "eg"
+  stage                  = "test"
+  name                   = "ecr"
+  principals_full_access = [data.aws_iam_role.ecr.arn]
+}

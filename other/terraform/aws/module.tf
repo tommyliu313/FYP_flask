@@ -14,3 +14,11 @@ module "web_app_s3" {
   elb_service_account_arn = data.aws_elb_service_account.root.arn
   common_tags             = local.common_tags
 }
+
+module "autoscaling" {
+  source  = "terraform-aws-modules/autoscaling/aws"
+  version = "6.3.0"
+  # insert the 34 required variables here
+  name = ""
+}
+
