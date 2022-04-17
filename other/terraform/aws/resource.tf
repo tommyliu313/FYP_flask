@@ -42,8 +42,9 @@ resource "aws_lb_target_group_attachment" "nginx" {
 resource "aws_vpc" "vpc"{
   cidr_block = var.cidr_block
 }
-resource "aws_subnet" "123" {
-  availability_zone = ""
+resource "aws_subnet" "main" {
+  vpc_id = module.vpc.id
+  cidr_block = "10.0.1.0/24"
 }
 resource "aws_s3_bucket_object" "website" {
   for_each = {
@@ -127,5 +128,19 @@ resource "aws_db_subnet_group" "default" {
 
   tags = {
     Name = "My DB subnet group"
+  }
+}
+
+resource "aws_route_table" "public_route_table"{
+  vpc_id = aws_vpc.vpc.id
+  tags = {
+    Name = "public"
+  }
+}
+
+resource "aws_route_table" "private_route_table"{
+  vpc_id = aws_vpc.vpc.id
+  tags = {
+    Name = "private"
   }
 }
