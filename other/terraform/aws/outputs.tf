@@ -10,4 +10,8 @@ output "resource_group_name" {
   value = local.full_rg_name
 }
 
+output "vpc_id"{
+  value = module.vpc.vpc_id
+}
+
 

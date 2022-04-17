@@ -23,7 +23,7 @@ variable "secret_key" {
 
 variable "private_subnet"{
 type = list(string)
-default = ["10.0.2.0/24","10.0.3.0/24"]
+default = ["10.0.2.0/24","10.0.4.0/24"]
 }
 
 variable "public_subnet"{
@@ -36,8 +36,4 @@ variable "cidr_block"{
 
 variable "vpc_subnet_count"{
  type = map(number)
-}
-
-variable ""{
-
 }

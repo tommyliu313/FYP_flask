@@ -34,3 +34,5 @@ when = destroy
 command = "sleep 90"
 }
 }
+
+resource ""

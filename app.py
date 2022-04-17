@@ -106,7 +106,7 @@ def restaurant(id:int,restaurant:str):
 def viewrestaurant():
     return render_template('page/viewrestaurant.html')
 
-@app.route('/waitstatview')
+@app.route('/page/waitstatview')
 def waitstatview():
     return render_template('page/waitstatview.html')
 #數據庫

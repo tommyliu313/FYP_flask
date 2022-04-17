@@ -15,14 +15,12 @@ resource "aws_lb" "nginx" {
 
   tags = local.common_tags
 }
-
 resource "aws_lb_target_group" "nginx" {
   name     = "${local.name_prefix}-alb-tg"
   port     = 80
   protocol = "HTTP"
   vpc_id   = module.vpc.vpc_id
 }
-
 resource "aws_lb_listener" "nginx" {
   load_balancer_arn = aws_lb.nginx.arn
   port              = "80"
@@ -35,44 +33,18 @@ resource "aws_lb_listener" "nginx" {
 
   tags = local.common_tags
 }
-
 resource "aws_lb_target_group_attachment" "nginx" {
   count            = var.instance_count
   target_group_arn = aws_lb_target_group.nginx.arn
   target_id        = aws_instance.nginx[count.index].id
   port             = 80
 }
-
 resource "aws_vpc" "vpc"{
   cidr_block = var.cidr_block
-}
-
-resource "aws_security_group" "nginx-sg" {
-  name   = "${local.name_prefix}-nginx_sg"
-  vpc_id = aws_vpc.vpc.id
-
-  # HTTP access from VPC
-  ingress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = [var.vpc_cidr_block]
-  }
-
-  # outbound internet access
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  tags = local.common_tags
 }
 resource "aws_subnet" "123" {
   availability_zone = ""
 }
-
 resource "aws_s3_bucket_object" "website" {
   for_each = {
     website = "/website/index.html"
@@ -104,4 +76,56 @@ resource "aws_instance" "nginx" {
 }
 resource "aws_internet_gateway" "gw" {
   vpc_id =
+}
+resource "aws_security_group" "nginx-sg" {
+  name   = "${local.name_prefix}-nginx_sg"
+  vpc_id = aws_vpc.vpc.id
+
+  # HTTP access from VPC
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = [var.vpc_cidr_block]
+  }
+
+  # outbound internet access
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = local.common_tags
+}
+resource "aws_security_group" "albsg"{
+   name =
+}
+
+resource "aws_security_group" "bastionsg"{
+
+}
+resource "aws_security_group_rule" "" {
+  ingress{
+    from_port = 80
+    to_port = 80
+    protocol = ""
+    cidr_blocks =
+  }
+  egress{
+    from_port = 80
+    to_port = 80
+    protocol = ""
+    cidr_blocks =
+  }
+}
+
+resource "aws_db_subnet_group" "default" {
+  name       = "main"
+  subnet_ids = []
+
+  tags = {
+    Name = "My DB subnet group"
+  }
 }

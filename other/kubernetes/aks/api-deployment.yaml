@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: ratings-api
-        image: zurecr.io/ratings-api:v1
+        image: azurecr.io/ratings-api:v1
         imagePullPolicy: Always
         ports:
         - containerPort: 3000 # the application listens to this port

@@ -15,25 +15,12 @@
       </li>
       </div>
       <div class="carousel-inner">
-      <div class="carousel-item" v-for="item in items">
-      <img class="d-block w-100" src="{{item.image.url}}" alt="First slide">
-      <div class="carousel-caption d-none d-md-block text-dark">
-      <h3>
-EVA發泡板</h3>
-      <p>
-依國際標準Pantone標準色卡之色號來製作</p>
-      </div>
-      </div>
-      <div class="carousel-item active">
-      <img class="d-block w-100" src="https://placeholder.pics/svg/300x120" alt="Second slide">
-      <div class="carousel-caption d-none d-md-block">
-      <h3>
-廠房設備</h3>
-      <p>
-高專業的製造能力</p>
-      </div>
-      </div>
-      </div>
+
+          {% if %}
+          <div class="carousel-item active">
+              <img src="{{  }}" alt="">
+            {% endif %}
+          </div>
       <button class="carousel-control-prev" href="#carouselBanner" type="button" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true">
       </span>
