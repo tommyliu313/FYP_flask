@@ -5,6 +5,6 @@ provider "google" {
 }
 
 provider "kubernetes"{
-  version = "~> 1.10.0"
+  version = "~> 1.21.0"
   host = google_container_cluster.default.endpoint
 }
