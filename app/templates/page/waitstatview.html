@@ -1,12 +1,26 @@
 {% include 'necessaries/navbar.html' %}
-{% block content %}
-    <header class="jumbotron">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad animi at deserunt dolorem eaque eos esse excepturi exercitationem impedit iste libero molestias, mollitia odio officia quae sapiente sunt tempora voluptatum.</p>
+{% block page_content %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/arrow.css') }}">
+    <header class="jumbotron has-background-info">
+        <p class="title">123131</p>
+        <p class="subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad animi at deserunt dolorem eaque eos esse excepturi exercitationem impedit iste libero molestias, mollitia odio officia quae sapiente sunt tempora voluptatum.</p>
     </header>
-    
+
+<div class="columns is-mobile">
+  <div class="column is-4 is-narrow">
+    <p class="arrow"><</p>
+  </div>
+  <div class="column is-4 is-narrow">
+    <div class="box">1234</div>
     <div class="columns">
-        <div class="column is-4">123</div>
-        <div class="column is-4">123</div>
-        <div class="column is-4">123</div>
+      <div class="column is-4">123</div>
     </div>
+    <div class="columns">
+      <div class="column is-4">123</div>
+    </div>
+  </div>
+  <div class="column is-4 is-narrow">
+    <p class="arrow">></p>
+  </div>
+</div>
 {% endblock %}

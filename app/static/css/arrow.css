@@ -1,0 +1,9 @@
+.arrow {
+  display: inline-block;
+  font-size: 200px;
+  cursor: pointer;
+}
+.arrow:hover {
+  background-color: #123121;
+  color: #fe9016;
+}
