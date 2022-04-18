@@ -1,3 +1,4 @@
+#configuration
 variable "subscription_id" {
   type = string
 }
@@ -11,6 +12,8 @@ variable "location"{
  type = string
  default = "eastus"
 }
+
+#virtual networking
 variable "vnet_cidr_range"{
 
 }

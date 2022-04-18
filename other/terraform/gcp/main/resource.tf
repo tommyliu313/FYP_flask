@@ -1,3 +1,4 @@
+# initial settings
 resource "google.compute_instance" "terraform"{
   project = var.project_id
   name = ""
@@ -35,6 +36,7 @@ resource "google_logging_metric" "logging_metric" {
   name = ""
 }
 
+# kubernetes
 resource "kubernetes_namespace" "staging"{
 metadata{
 name = "staging"

@@ -1,3 +1,4 @@
+#configuration
 variable "aws_region"{
   type = string
   description = "Region for AWS Resources"
@@ -8,17 +9,18 @@ variable "aws_region2"{
   description = "Region for AWS Resources"
   default = "us-east-2"
 }
+variable "access_key"{
+
+}
+variable "secret_key" {
+
+}
+
+# virtual network
 variable "instance_type" {
   type        = string
   description = "Type for EC2 Instance"
   default     = "t2.micro"
-}
-variable "access_key"{
-
-}
-
-variable "secret_key" {
-
 }
 
 variable "private_subnet"{

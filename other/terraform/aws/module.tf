@@ -18,6 +18,7 @@ module "s3-bucket" {
   # insert the 7 required variables here
 }
 
+#autoscaling
 module "autoscaling" {
   source  = "terraform-aws-modules/autoscaling/aws"
   version = "6.3.0"
@@ -25,6 +26,7 @@ module "autoscaling" {
   name = ""
 }
 
+#application load balancer
 module "alb" {
   source  = "terraform-aws-modules/alb/aws"
   version = "6.8.0"
@@ -33,12 +35,14 @@ module "alb" {
   vpc_id = ""
 }
 
+
 module "security-group" {
   source  = "terraform-aws-modules/security-group/aws"
   version = "4.9.0"
   # insert the 3 required variables here
 }
 
+#relational database
 module "rds" {
   source  = "terraform-aws-modules/rds/aws"
   version = "4.2.0"

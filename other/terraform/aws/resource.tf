@@ -1,3 +1,4 @@
+#load balancer
 resource "aws_lb" "nginx" {
   name               = "${local.name_prefix}-alb"
   internal           = false
@@ -39,6 +40,8 @@ resource "aws_lb_target_group_attachment" "nginx" {
   target_id        = aws_instance.nginx[count.index].id
   port             = 80
 }
+
+#virtual network
 resource "aws_vpc" "vpc"{
   cidr_block = var.cidr_block
 }
@@ -78,6 +81,8 @@ resource "aws_instance" "nginx" {
 resource "aws_internet_gateway" "gw" {
   vpc_id =
 }
+
+#security group
 resource "aws_security_group" "nginx-sg" {
   name   = "${local.name_prefix}-nginx_sg"
   vpc_id = aws_vpc.vpc.id
@@ -130,6 +135,7 @@ resource "aws_db_subnet_group" "default" {
   }
 }
 
+#routetable
 resource "aws_route_table" "public_route_table"{
   vpc_id = aws_vpc.vpc.id
   tags = {
