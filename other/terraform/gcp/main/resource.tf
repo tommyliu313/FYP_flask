@@ -1,10 +1,4 @@
 # initial settings
-resource "google.compute_instance" "terraform"{
-  project = var.project_id
-  name = ""
-  machine_type = var.machine_type
-  zone = var.zone
-}
 resource "google_compute_network" "default"{
   name = var.network_name
 }
@@ -19,6 +13,16 @@ resource "google_compute_address" "default"{
   name = var.network_name
   region = var.region
 }
+
+# ec2
+resource "google.compute_instance" "terraform"{
+  project = var.project_id
+  name = ""
+  machine_type = var.machine_type
+  zone = var.zone
+}
+
+# container
 resource "google_container_cluster" "default"{
 name = var.network_name
 location = var.location
@@ -32,6 +36,8 @@ when = destroy
 command = "sleep 90"
 }
 }
+
+#cloud logging
 resource "google_logging_metric" "logging_metric" {
   name = ""
   filter = ""
@@ -95,4 +101,4 @@ resource "kubernetes_replication_controller" "nginx"{
       metadata {}
       spec {}
     }
-  }
+  }}

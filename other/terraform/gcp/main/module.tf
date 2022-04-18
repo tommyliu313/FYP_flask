@@ -29,6 +29,7 @@ module "load_balancer" {
   network      = var.network
 }
 
+#kubernetes
 module "gke" {
   source                     = "terraform-google-modules/kubernetes-engine/google"
   project_id                 = "<PROJECT ID>"
@@ -109,6 +110,7 @@ module "gke" {
   }
 }
 
+#load balancer
 module "gce-lb-http" {
   source            = "GoogleCloudPlatform/lb-http/google"
   version           = "~> 4.4"
@@ -199,14 +201,22 @@ module "load_balancer" {
   network      = var.network
 }
 
+# s3
 module "cloud-storage" {
   source  = "terraform-google-modules/cloud-storage/google"
   version = "3.2.0"
   # insert the 1 required variable here
 }
 
+#
 module "appengine" {
   source  = "JamesWoolfenden/appengine/gcp"
   version = "0.1.19"
   # insert the 4 required variables here
+}
+
+#sql
+module "sql-db" {
+  source  = "GoogleCloudPlatform/sql-db/google"
+  version = "10.0.1"
 }

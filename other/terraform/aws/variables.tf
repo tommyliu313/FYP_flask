@@ -39,3 +39,6 @@ variable "cidr_block"{
 variable "vpc_subnet_count"{
  type = map(number)
 }
+
+#kubernetes
+variable "kubernetes_settings" ""{}

@@ -49,6 +49,7 @@ resource "aws_subnet" "main" {
   vpc_id = module.vpc.id
   cidr_block = "10.0.1.0/24"
 }
+#s3
 resource "aws_s3_bucket_object" "website" {
   for_each = {
     website = "/website/index.html"
@@ -60,6 +61,8 @@ resource "aws_s3_bucket_object" "website" {
 
   tags = local.common_tags
 }
+
+#ec2
 resource "aws_instance" "nginx" {
   count                  = var.instance_count
   ami                    = nonsensitive(data.aws_ssm_parameter.ami.value)
@@ -150,6 +153,15 @@ resource "aws_route_table" "private_route_table"{
   }
 }
 
+#eks
 resource "aws_eks_cluster" "example"{
 
+}
+
+#cloudwatch
+resource "aws_cloudwatch_metric_alarm" ""{
+
+  alarm_name          = ""
+  comparison_operator = ""
+  evaluation_periods  = 0
 }

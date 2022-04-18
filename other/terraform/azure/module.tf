@@ -23,6 +23,7 @@ module "loadbalancer" {
   source  = "Azure/loadbalancer/azurerm"
   version = "3.4.0"
   # insert the 1 required variable here
+  resource_group_name = ""
 }
 module "ecr" {
   source = "cloudposse/ecr/aws"
@@ -32,4 +33,9 @@ module "ecr" {
   stage                  = "test"
   name                   = "ecr"
   principals_full_access = [data.aws_iam_role.ecr.arn]
+}
+module "web-app" {
+  source  = "innovationnorway/web-app/azurerm"
+  version = "1.0.3-alpha.1"
+  # insert the 2 required variables here
 }
