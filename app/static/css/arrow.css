@@ -7,3 +7,7 @@
   background-color: #123121;
   color: #fe9016;
 }
+
+.front:hover {
+  background-color: #fff000;
+}

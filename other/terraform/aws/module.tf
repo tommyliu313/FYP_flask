@@ -44,3 +44,9 @@ module "rds" {
   version = "4.2.0"
   # insert the 38 required variables here
 }
+
+module "eks" {
+  source  = "terraform-aws-modules/eks/aws"
+  version = "18.20.2"
+
+}

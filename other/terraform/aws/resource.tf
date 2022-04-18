@@ -103,7 +103,6 @@ resource "aws_security_group" "nginx-sg" {
 resource "aws_security_group" "albsg"{
    name =
 }
-
 resource "aws_security_group" "bastionsg"{
 
 }

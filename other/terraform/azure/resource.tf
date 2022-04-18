@@ -28,3 +28,12 @@ resource "azurerm_virtual_network" "example"{
   location =
   resource_group_name =
 }
+resource "azurerm_service_plan" "example"{
+  name = ""
+  resource_group_name = azurerm_resource_group.setup.name
+  location = var.location
+  sku_name = "P1v2"
+}
+resource "azurerm_windows_web_app" ""{
+
+}

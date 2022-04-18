@@ -183,3 +183,9 @@ module "load_balancer" {
   target_tags  = ["allow-lb-service"]
   network      = var.network
 }
+
+module "cloud-storage" {
+  source  = "terraform-google-modules/cloud-storage/google"
+  version = "3.2.0"
+  # insert the 1 required variable here
+}
