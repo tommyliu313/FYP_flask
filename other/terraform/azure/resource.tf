@@ -47,9 +47,20 @@ resource "azurerm_windows_web_app" "example"{
 }
 
 resource "azurerm_kubernetes_cluster" "example"{
- name =
+ name = ""
+ default_node_pool {
+   name    = ""
+   vm_size = "Standard_B2s"
+ }
 }
 #monitoring
+resource "azurerm_log_analytics_workspace" "example"{
+  name = ""
+  location = var.location
+  resource_group_name = var.resource_group_name
+  sku = "PerGB2018"
+  retention_in_days = 30
+}
 resource "azurerm_monitor_action_group" "" {
 
 }
