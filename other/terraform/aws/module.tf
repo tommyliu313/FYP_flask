@@ -50,3 +50,15 @@ module "eks" {
   version = "18.20.2"
 
 }
+
+module "ec2-instance" {
+  source  = "terraform-aws-modules/ec2-instance/aws"
+  version = "3.5.0"
+  name = ""
+  instance_type = var.instance_type
+  subnet_id = ""
+  monitoring = true
+  tags = {
+    name = "ec2"
+  }
+}

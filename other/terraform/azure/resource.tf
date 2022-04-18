@@ -37,3 +37,9 @@ resource "azurerm_service_plan" "example"{
 resource "azurerm_windows_web_app" ""{
 
 }
+resource "azurerm_monitor_action_group" "" {
+
+}
+resource "azurerm_monitor_metric_alert" ""{
+
+}

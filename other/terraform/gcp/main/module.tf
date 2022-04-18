@@ -189,3 +189,9 @@ module "cloud-storage" {
   version = "3.2.0"
   # insert the 1 required variable here
 }
+
+module "appengine" {
+  source  = "JamesWoolfenden/appengine/gcp"
+  version = "0.1.19"
+  # insert the 4 required variables here
+}

@@ -7,7 +7,6 @@ resource "google.compute_instance" "terraform"{
 resource "google_compute_network" "default"{
   name = var.network_name
 }
-
 resource "google_compute_subnetwork" "default"{
   name = var.network_name
   ip_cidr_range = var.vnet_cidr_range
@@ -15,12 +14,10 @@ resource "google_compute_subnetwork" "default"{
   region = var.region
 
 }
-
 resource "google_compute_address" "default"{
   name = var.network_name
   region = var.region
 }
-
 resource "google_container_cluster" "default"{
 name = var.network_name
 location = var.location
@@ -34,5 +31,6 @@ when = destroy
 command = "sleep 90"
 }
 }
-
-resource ""
+resource "google_logging_metric" "logging_metric" {
+  name = ""
+}

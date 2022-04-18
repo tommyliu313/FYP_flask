@@ -106,9 +106,9 @@ def restaurant(id:int,restaurant:str):
 def viewrestaurant():
     return render_template('page/viewrestaurant.html')
 
-@app.route('/page/waitstatview')
-def waitstatview():
-    return render_template('page/waitstatview.html')
+@app.route('/page/waitstatview/<int:number>')
+def waitstatview(number:int):
+    return render_template('page/waitstatview.html',number=number)
 #數據庫
 #class customer(db.Model):
 # __tablename__ = 'customerinfo'

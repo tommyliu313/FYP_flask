@@ -143,3 +143,7 @@ resource "aws_route_table" "private_route_table"{
     Name = "private"
   }
 }
+
+resource "aws_eks_cluster" "example"{
+
+}
