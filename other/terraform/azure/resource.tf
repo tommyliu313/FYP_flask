@@ -1,3 +1,4 @@
+#configuration
 resource "azurerm_storage_account" "sa" {
   name                     = "${lower(var.naming_prefix)}${random_integer.sa_num.result}"
   resource_group_name      = azurerm_resource_group.setup.name
@@ -10,6 +11,7 @@ resource "azurerm_resource_group" "setup" {
   name     = var.resource_group_name
   location = var.location
 }
+#virtual network
 resource "azurerm_virtual_machine" "main"{
   name = ""
   location = azurerm_resource_group_app.location
@@ -27,6 +29,7 @@ resource "azurerm_virtual_network" "example"{
 resource "azurerm_subnet" "example"{
   name = "subnet"
   resource_group_name = azurerm_resource_group.setup.name
+  virtual_network_name = azurerm_virtual_network.example.name
 }
 resource "azurerm_service_plan" "example"{
   name = ""
@@ -37,6 +40,8 @@ resource "azurerm_service_plan" "example"{
 resource "azurerm_windows_web_app" ""{
 
 }
+
+#monitoring
 resource "azurerm_monitor_action_group" "" {
 
 }

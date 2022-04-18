@@ -9,7 +9,7 @@ variable "client_secret"{
 }
 variable "location"{
  type = string,
- default = "us-east-1a"
+ default = "asia-east2"
 }
 variable "vnet_cidr_range"{
 
