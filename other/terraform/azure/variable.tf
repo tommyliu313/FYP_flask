@@ -17,7 +17,8 @@ variable "vnet_cidr_range"{
 variable "vnet_id"{}
 variable "vnet_name"{}
 variable "public_subnet"{
-type = string
+type = string,
+
 }
 variable "private_subnet"{
  type = string,

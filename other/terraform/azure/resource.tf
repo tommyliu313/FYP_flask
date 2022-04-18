@@ -18,15 +18,15 @@ resource "azurerm_virtual_machine" "main"{
   network_interface_ids = []
   storage_os_disk {}
 }
-resource "azurerm_resource_group" "example" {
-  name     = "my-resources"
-  location = "West Europe"
-}
 resource "azurerm_virtual_network" "example"{
-  name = ""
+  name = "vnet"
   address_space = [""]
-  location =
-  resource_group_name =
+  location = azurerm_resource_group.setup.location
+  resource_group_name = azurerm_resource_group.setup.name
+}
+resource "azurerm_subnet" "example"{
+  name = "subnet"
+  resource_group_name = azurerm_resource_group.setup.name
 }
 resource "azurerm_service_plan" "example"{
   name = ""
