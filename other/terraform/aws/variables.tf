@@ -2,18 +2,18 @@
 variable "aws_region"{
   type = string
   description = "Region for AWS Resources"
-  default = "us-east-1"
+  default = "ap-east-1"
 }
 variable "aws_region2"{
   type = string
   description = "Region for AWS Resources"
-  default = "us-east-2"
+  default = "ap-southeast-3"
 }
 variable "access_key"{
-
+ value = ""
 }
 variable "secret_key" {
-
+ value = ""
 }
 
 # virtual network

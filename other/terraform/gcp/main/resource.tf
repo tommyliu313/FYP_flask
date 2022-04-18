@@ -34,6 +34,7 @@ command = "sleep 90"
 }
 resource "google_logging_metric" "logging_metric" {
   name = ""
+  filter = ""
 }
 
 # kubernetes

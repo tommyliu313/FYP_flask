@@ -111,7 +111,7 @@ resource "aws_security_group" "albsg"{
 resource "aws_security_group" "bastionsg"{
 
 }
-resource "aws_security_group_rule" "" {
+resource "aws_security_group_rule" "example" {
   ingress{
     from_port = 80
     to_port = 80

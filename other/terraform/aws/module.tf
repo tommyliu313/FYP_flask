@@ -5,11 +5,13 @@ module "cloudwatch" {
 
 module "vpc"{
  source = "terraform-aws-modules/vpc/aws"
+ version = "2.66.0"
  name = "my-vpc"
  cidr = var.cidr_block
  azs = [var.aws_region,var.aws_region2]
  private_subnet = var.private_subnet
  public_subnet = var.public_subnet
+ id =
 }
 
 module "s3-bucket" {
@@ -52,7 +54,9 @@ module "rds" {
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "18.20.2"
-
+  cluster_name
+  vpc_id =
+  subnet_id =
 }
 
 module "ec2-instance" {
