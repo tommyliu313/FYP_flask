@@ -14,4 +14,14 @@ output "vpc_id"{
   value = module.vpc.vpc_id
 }
 
+output "cluster_id"{
+  value = module.eks.cluster_id
+}
 
+output "region"{
+  value = var.aws_region
+}
+
+output "cluster_name"{
+  value = module.eks.cluster_name
+}
