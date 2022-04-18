@@ -11,6 +11,11 @@ resource "azurerm_resource_group" "setup" {
   name     = var.resource_group_name
   location = var.location
 }
+resource "azurerm_subscription" "example"{
+  subscription_name = "Our Subscription"
+  billing_scope_id = data.azurerm_billing_enrollment_account_scope.example.id
+}
+
 #virtual network
 resource "azurerm_virtual_machine" "main"{
   name = ""
@@ -37,10 +42,13 @@ resource "azurerm_service_plan" "example"{
   location = var.location
   sku_name = "P1v2"
 }
-resource "azurerm_windows_web_app" ""{
+resource "azurerm_windows_web_app" "example"{
 
 }
 
+resource "azurerm_kubernetes_cluster" "example"{
+ name =
+}
 #monitoring
 resource "azurerm_monitor_action_group" "" {
 

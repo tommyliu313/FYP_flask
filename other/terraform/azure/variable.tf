@@ -10,7 +10,7 @@ variable "client_secret"{
 }
 variable "location"{
  type = string
- default = "eastus"
+ default = "eastasia"
 }
 
 #virtual networking
@@ -35,4 +35,9 @@ variable "subnet_prefixes"{
 }
 variable "subnet_names" {
  type = string
+}
+
+variable "kubernetes_settings"{
+  name = "example-aks1"
+  location = var.location
 }
