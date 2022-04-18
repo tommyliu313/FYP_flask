@@ -54,8 +54,8 @@ module "rds" {
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "18.20.2"
-  cluster_name
-  vpc_id =
+  cluster_name = ""
+  vpc_id = module.vpc
   subnet_id =
 }
 
