@@ -144,6 +144,44 @@ module "vpc" {
     }
   ]
 }
+    
+resource "google_compute_instance_template" "default" {
+  provider = google
+
+  name           = "instance-projecte"
+  machine_type   = "f1-micro"
+  can_ip_forward = false
+
+  tags = ["foo", "bar"]
+
+  disk {
+    source_image = data.google_compute_image.debian_9.id
+  }
+
+  network_interface {
+    network = "default"
+  }
+
+  metadata = {
+    foo = "bar"
+  }
+
+  service_account {
+    scopes = ["itp4121project"]
+  }
+}
+    
+resource "google_compute_instance_group" "test" {
+  name        = "instance-group-project"
+  description = "Terraform test instance group"
+  region      = "asia-east2"
+  zone        = "asia-east2-a"
+  network     = google_compute_network.default.id
+  Autoscaling_mode = "On: add and remove instances to the group"
+  Minimum = 1
+  Maximum = 10
+}    
+
 
 module "cloud_router" {
   source  = "terraform-google-modules/cloud-router/google"
