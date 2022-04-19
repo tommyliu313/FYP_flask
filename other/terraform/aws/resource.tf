@@ -85,7 +85,7 @@ resource "aws_instance" "Bastion_host"{
   name = ""
 }
 resource "aws_internet_gateway" "gw" {
-  vpc_id =
+  vpc_id = module.vpc.id
 }
 
 
@@ -113,7 +113,7 @@ resource "aws_security_group" "nginx-sg" {
   tags = local.common_tags
 }
 resource "aws_security_group" "albsg"{
-   name =
+   name = "application load balancer security group"
 }
 resource "aws_security_group" "bastionsg"{
 
@@ -123,13 +123,13 @@ resource "aws_security_group_rule" "example" {
     from_port = 80
     to_port = 80
     protocol = ""
-    cidr_blocks =
+    cidr_blocks = module.vpc.cidr_block
   }
   egress{
     from_port = 80
     to_port = 80
     protocol = ""
-    cidr_blocks =
+    cidr_blocks = module.vpc.cidr_block
   }
 }
 
@@ -153,18 +153,21 @@ resource "aws_route_table" "public_route_table"{
 
 resource "aws_route_table" "private_route_table"{
   vpc_id = aws_vpc.vpc.id
+  route {
+    cidr_block = var.cidr_block
+  }
   tags = {
     Name = "private"
   }
 }
 
 #eks
-resource "aws_eks_cluster" "example"{
+/*resource "aws_eks_cluster" "example"{
 
   name     = ""
   role_arn = ""
   vpc_config {}
-}
+}*/
 
 #cloudwatch
 resource "aws_cloudwatch_metric_alarm" "alarm"{

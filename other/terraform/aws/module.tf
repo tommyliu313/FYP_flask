@@ -13,7 +13,6 @@ module "vpc"{
  azs = [var.aws_region,var.aws_region2]
  private_subnet = var.private_subnet
  public_subnet = var.public_subnet
- id =
 }
 
 module "s3-bucket" {
@@ -68,8 +67,9 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "18.20.2"
   cluster_name = ""
-  vpc_id = module.vpc
-  subnet_id =
+  cluster_version = ""
+  subnets = module.vpc.private_subnets
+  vpc_id = module.vpc.vpc_id
 }
 
 #ec2

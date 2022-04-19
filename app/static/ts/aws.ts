@@ -9,8 +9,8 @@ Auth.configure({
     region: "us-east-1",
     domain: 'https://lineinthecloud.auth.us-east-1.amazoncognito.com',
     scope: ['email', 'openid', 'aws.cognito.signin.user.admin'],
-    redirectSignIn: 'https://172.31.50.168:5000',
-    redirectSignOut: 'https://172.31.50.168:5000',
+    redirectSignIn: 'https://172.31.50.168:5000/login',
+    redirectSignOut: 'https://172.31.50.168:5000/logout',
     responseType: 'code'
   }
 })

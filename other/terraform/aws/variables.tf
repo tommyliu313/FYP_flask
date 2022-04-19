@@ -41,4 +41,6 @@ variable "vpc_subnet_count"{
 }
 
 #kubernetes
-variable "kubernetes_settings" ""{}
+variable "kubernetes_settings" {
+
+}
