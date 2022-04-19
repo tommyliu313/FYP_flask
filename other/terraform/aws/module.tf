@@ -1,8 +1,10 @@
+#monitoring cloudwatch
 module "cloudwatch" {
   source  = "terraform-aws-modules/cloudwatch/aws"
   version = "2.5.0"
 }
 
+#virtual private cloud
 module "vpc"{
  source = "terraform-aws-modules/vpc/aws"
  version = "2.66.0"
@@ -37,7 +39,7 @@ module "alb" {
   vpc_id = ""
 }
 
-
+# security group
 module "security-group" {
   source  = "terraform-aws-modules/security-group/aws"
   version = "4.9.0"
@@ -48,9 +50,20 @@ module "security-group" {
 module "rds" {
   source  = "terraform-aws-modules/rds/aws"
   version = "4.2.0"
-  # insert the 38 required variables here
+
+  # database engine
+  engine = "mysql"
+  engine_version = ""
+  instance_class = ""
+  allocated_storage = 3
+
+  # database info
+  db_name = ""
+  username = ""
+  port = "3306"
 }
 
+#kubernetes service
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "18.20.2"
@@ -59,6 +72,7 @@ module "eks" {
   subnet_id =
 }
 
+#ec2
 module "ec2-instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "3.5.0"
