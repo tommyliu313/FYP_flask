@@ -19,6 +19,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'mo
 app.config['JWT_SECRET_KEY'] = ''
 #client = boto3.client('rds')
 
+
 bp =Blueprint('app',__name__)
 #app.config['']
 
@@ -27,7 +28,7 @@ ma = Marshmallow(app)
 jwt = JWTManager(app)
 #@app.cli.command('db_create')
 #def db_create():
-
+jsonpath = os.path.join(os.path.dirname(__file__),"app",'templates','api')
 # 頁面導向
 
 @app.route('/') #指明路徑
@@ -109,6 +110,10 @@ def viewrestaurant():
 @app.route('/page/waitstatview/<int:number>')
 def waitstatview(number:int):
     return render_template('page/waitstatview.html',number=number)
+
+#@app.route('/show')
+#def show():
+#    json = os.path.dirname
 #數據庫
 #class customer(db.Model):
 # __tablename__ = 'customerinfo'

@@ -25,3 +25,6 @@ output "region"{
 output "cluster_name"{
   value = module.eks.cluster_name
 }
+output "instance_private_ip"{
+  value = aws_instance
+}

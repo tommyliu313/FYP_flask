@@ -46,13 +46,15 @@ resource "azurerm_windows_web_app" "example"{
 
 }
 
+#kubernetes
 resource "azurerm_kubernetes_cluster" "example"{
- name = ""
+ name = "kubernetes_cluster"
  default_node_pool {
    name    = ""
    vm_size = "Standard_B2s"
  }
 }
+
 #monitoring
 resource "azurerm_log_analytics_workspace" "example"{
   name = ""
@@ -61,9 +63,14 @@ resource "azurerm_log_analytics_workspace" "example"{
   sku = "PerGB2018"
   retention_in_days = 30
 }
-resource "azurerm_monitor_action_group" "" {
-
+resource "azurerm_monitor_action_group" "action_group" {
+  name                = ""
+  resource_group_name = var.resource_group_name
+  short_name          = ""
 }
-resource "azurerm_monitor_metric_alert" ""{
+resource "azurerm_monitor_metric_alert" "metric_alert"{
 
+  name                = ""
+  resource_group_name = var.resource_group_name
+  scopes              = []
 }

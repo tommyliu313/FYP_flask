@@ -44,6 +44,8 @@ resource "aws_lb_target_group_attachment" "nginx" {
 #virtual network
 resource "aws_vpc" "vpc"{
   cidr_block = var.cidr_block
+  enable_dns_hostnames = true
+  enable_dns_support = true
 }
 resource "aws_subnet" "main" {
   vpc_id = module.vpc.id
@@ -71,19 +73,21 @@ resource "aws_instance" "nginx" {
   vpc_security_group_ids = [aws_security_group.nginx-sg.id]
   iam_instance_profile   = module.web_app_s3.instance_profile.name
   depends_on             = [module.web_app_s3]
-
-  user_data = templatefile("${path.module}/startup_script.tpl", {
-    s3_bucket_name = module.web_app_s3.web_bucket.id
-  })
-
+  security_groups = ""
+  user_data = templatefile("${path.module}/startup_script.tpl", { s3_bucket_name = module.web_app_s3.web_bucket.id })
   tags = merge(local.common_tags, {
     Name = "${local.name_prefix}-nginx-${count.index}"
   })
 
 }
+
+resource "aws_instance" "Bastion_host"{
+  name = ""
+}
 resource "aws_internet_gateway" "gw" {
   vpc_id =
 }
+
 
 #security group
 resource "aws_security_group" "nginx-sg" {
@@ -129,6 +133,7 @@ resource "aws_security_group_rule" "example" {
   }
 }
 
+# database subnet group
 resource "aws_db_subnet_group" "default" {
   name       = "main"
   subnet_ids = []
@@ -156,10 +161,13 @@ resource "aws_route_table" "private_route_table"{
 #eks
 resource "aws_eks_cluster" "example"{
 
+  name     = ""
+  role_arn = ""
+  vpc_config {}
 }
 
 #cloudwatch
-resource "aws_cloudwatch_metric_alarm" ""{
+resource "aws_cloudwatch_metric_alarm" "alarm"{
 
   alarm_name          = ""
   comparison_operator = ""
