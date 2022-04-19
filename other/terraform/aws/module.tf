@@ -66,10 +66,12 @@ module "rds" {
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "18.20.2"
-  cluster_name = ""
+  cluster_name = var.kubernetes_settings.clustername
   cluster_version = ""
+  cluster_endpoint_private_access = true
   subnets = module.vpc.private_subnets
   vpc_id = module.vpc.vpc_id
+
 }
 
 #ec2

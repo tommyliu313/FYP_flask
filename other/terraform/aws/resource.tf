@@ -176,3 +176,5 @@ resource "aws_cloudwatch_metric_alarm" "alarm"{
   comparison_operator = ""
   evaluation_periods  = 0
 }
+
+resource "kubernetes_deployment"
