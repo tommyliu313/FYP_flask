@@ -177,4 +177,24 @@ resource "aws_cloudwatch_metric_alarm" "alarm"{
   evaluation_periods  = 0
 }
 
-resource "kubernetes_deployment"
+resource "kubernetes_deployment" ""{
+
+}
+
+resource "aws_eks_cluster" "kubernetes"{
+  name = var.kubernetes_settings.clustername
+  role_arn = ""
+  vpc_config {
+    subnet_ids = aws_subnet
+  }
+}
+resource "aws_eks_node_group" "kubernetes_group"{
+  cluster_name = aws_eks_cluster.kubernetes.names
+  node_role_arn = ""
+
+  scaling_config {
+    desired_size = 1
+    max_size     = 3
+    min_size     = 1
+  }
+}
