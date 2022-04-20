@@ -10,9 +10,9 @@ module "vpc"{
  version = "2.66.0"
  name = "my-vpc"
  cidr = var.cidr_block
- azs = [var.aws_region,var.aws_region2]
- private_subnet = var.private_subnet
- public_subnet = var.public_subnet
+ azs = ["${var.aws_region}a","${var.aws_region}b"]
+ private_subnets = var.private_subnets
+ public_subnets = var.public_subnets
 }
 
 module "s3-bucket" {
@@ -35,7 +35,7 @@ module "alb" {
   version = "6.8.0"
   name = "my-alb"
   load_balancer_type = "application"
-  vpc_id = ""
+  vpc_id = module.vpc.vpc_id
 }
 
 # security group
@@ -78,7 +78,7 @@ module "eks" {
 module "ec2-instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "3.5.0"
-  name = ""
+  name = "ec2"
   instance_type = var.instance_type
   subnet_id = ""
   monitoring = true

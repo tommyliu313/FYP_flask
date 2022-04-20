@@ -46,10 +46,15 @@ resource "aws_vpc" "vpc"{
   cidr_block = var.cidr_block
   enable_dns_hostnames = true
   enable_dns_support = true
+
+  tags = {
+    "Name" = "VPC"
+  }
 }
 resource "aws_subnet" "main" {
   vpc_id = module.vpc.id
   cidr_block = "10.0.1.0/24"
+  availability_zone = data.aws_availability_zones.
 }
 #s3
 resource "aws_s3_bucket_object" "website" {
@@ -73,7 +78,7 @@ resource "aws_instance" "nginx" {
   vpc_security_group_ids = [aws_security_group.nginx-sg.id]
   iam_instance_profile   = module.web_app_s3.instance_profile.name
   depends_on             = [module.web_app_s3]
-  security_groups = ""
+  security_groups =
   user_data = templatefile("${path.module}/startup_script.tpl", { s3_bucket_name = module.web_app_s3.web_bucket.id })
   tags = merge(local.common_tags, {
     Name = "${local.name_prefix}-nginx-${count.index}"
@@ -82,7 +87,7 @@ resource "aws_instance" "nginx" {
 }
 
 resource "aws_instance" "Bastion_host"{
-  name = ""
+  name = " "
 }
 resource "aws_internet_gateway" "gw" {
   vpc_id = module.vpc.id
@@ -175,10 +180,6 @@ resource "aws_cloudwatch_metric_alarm" "alarm"{
   alarm_name          = ""
   comparison_operator = ""
   evaluation_periods  = 0
-}
-
-resource "kubernetes_deployment" ""{
-
 }
 
 resource "aws_eks_cluster" "kubernetes"{

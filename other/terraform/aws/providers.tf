@@ -8,5 +8,7 @@ provider "aws"{
 
 provider "kubernetes"{
     host = data.aws_eks_cluster.cluster.endpoint
-    version =
+    version = "~>1.11"
+    token = data.aws_eks_cluster_auth.cluster.token
+    load_config_file = false
 }

@@ -2,19 +2,14 @@
 variable "aws_region"{
   type = string
   description = "Region for AWS Resources"
-  default = "ap-east-1"
+  default = "ap-east"
 }
-variable "aws_region2"{
-  type = string
-  description = "Region for AWS Resources"
-  default = "ap-southeast-3"
-}
-variable "access_key"{
+/*variable "access_key"{
  value = ""
 }
 variable "secret_key" {
  value = ""
-}
+}*/
 
 # virtual network
 variable "instance_type" {
@@ -23,12 +18,12 @@ variable "instance_type" {
   default     = "t2.micro"
 }
 
-variable "private_subnet"{
+variable "private_subnets"{
 type = list(string)
 default = ["10.0.2.0/24","10.0.4.0/24"]
 }
 
-variable "public_subnet"{
+variable "public_subnets"{
 type = list(string)
 default = ["10.0.0.0/24","10.0.1.0/24"]
 }
@@ -41,6 +36,3 @@ variable "vpc_subnet_count"{
 }
 
 #kubernetes
-variable "kubernetes_settings" {
-clustername = "kubernetescluster"
-}
