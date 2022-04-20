@@ -34,7 +34,7 @@ module "gke" {
   source                     = "terraform-google-modules/kubernetes-engine/google"
   project_id                 = itp4121project
   name                       = "gke-test-project"
-  region                     = "us-central1"
+  region                     = "asia-east2"
   zones                      = ["asia-east2-a", "asia-east2-b", "asia-east2-c"]
   network                    = "vpc-01"
   subnetwork                 = "asia-east2-01"
