@@ -78,7 +78,7 @@ resource "aws_instance" "nginx" {
   vpc_security_group_ids = [aws_security_group.nginx-sg.id]
   iam_instance_profile   = module.web_app_s3.instance_profile.name
   depends_on             = [module.web_app_s3]
-  security_groups =
+  security_groups = ""
   user_data = templatefile("${path.module}/startup_script.tpl", { s3_bucket_name = module.web_app_s3.web_bucket.id })
   tags = merge(local.common_tags, {
     Name = "${local.name_prefix}-nginx-${count.index}"
@@ -198,4 +198,43 @@ resource "aws_eks_node_group" "kubernetes_group"{
     max_size     = 3
     min_size     = 1
   }
+}
+
+resource "kubernetes_deployment" "kubernetes_development"{
+metadata{
+        name = ""
+        labels = {
+
+}
+}
+   spec{
+        replicas = 2
+
+        selector{
+
+}
+}
+        template{
+
+}
+        spec{
+        container {
+        image = "nginx:latest"
+        name = "nginx"
+        resources {
+        limits{
+        cpu = ""
+        memory = "Mi"
+}
+        requests{
+        cpu = ""
+        memory = "Mi"
+}
+}
+}
+}
+}
+resource "kubernetes_service" "kubernetes_service"{
+  metadata {}
+  spec {}
 }

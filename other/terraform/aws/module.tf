@@ -35,6 +35,7 @@ module "alb" {
   version = "6.8.0"
   name = "my-alb"
   load_balancer_type = "application"
+  subnet = [var.public_subnets[0],var.public_subnets[1]]
   vpc_id = module.vpc.vpc_id
 }
 
@@ -71,7 +72,15 @@ module "eks" {
   cluster_endpoint_private_access = true
   subnets = module.vpc.private_subnets
   vpc_id = module.vpc.vpc_id
+  worker_groups = [
+    {
+      name = "worker-group01"
+      instance_type = "t2.small"
+      additional_userdata = "N/A"
+      asg_desired_capacity = 1
 
+    }
+  ]
 }
 
 #ec2
