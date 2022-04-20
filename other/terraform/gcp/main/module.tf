@@ -14,15 +14,15 @@ module "gcloud" {
 module "cloud-nat" {
   source     = "terraform-google-modules/cloud-nat/google"
   version    = "~> 1.2"
-  project_id = var.project_id
-  region     = var.region
+  project_id = itp4121project
+  region     = asia-east2
   router     = google_compute_router.router.name
 }
 
 module "load_balancer" {
   source       = "GoogleCloudPlatform/lb/google"
   version      = "~> 2.0.0"
-  region       = var.region
+  region       = asia-east2
   name         = "load-balancer"
   service_port = 80
   target_tags  = ["allow-lb-service"]
@@ -32,14 +32,14 @@ module "load_balancer" {
 #kubernetes
 module "gke" {
   source                     = "terraform-google-modules/kubernetes-engine/google"
-  project_id                 = var.project_id
-  name                       = "gke-test-1"
+  project_id                 = itp4121project
+  name                       = "gke-test-project"
   region                     = "us-central1"
-  zones                      = ["us-central1-a", "us-central1-b", "us-central1-f"]
+  zones                      = ["asia-east2-a", "asia-east2-b", "asia-east2-c"]
   network                    = "vpc-01"
-  subnetwork                 = "us-central1-01"
-  ip_range_pods              = "us-central1-01-gke-01-pods"
-  ip_range_services          = "us-central1-01-gke-01-services"
+  subnetwork                 = "asia-east2-01"
+  ip_range_pods              = "asia-east2-01-gke-01-pods"
+  ip_range_services          = "asia-east2-01-gke-01-services"
   http_load_balancing        = false
   network_policy             = false
   horizontal_pod_autoscaling = true
@@ -48,8 +48,8 @@ module "gke" {
   node_pools = [
     {
       name                      = "default-node-pool"
-      machine_type              = "e2-medium"
-      node_locations            = "us-central1-b,us-central1-c"
+      machine_type              = "f1-micro"
+      node_locations            = "asia-east2-b,asia-east2-c"
       min_count                 = 1
       max_count                 = 100
       local_ssd_count           = 0
