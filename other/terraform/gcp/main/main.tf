@@ -181,23 +181,3 @@ resource "google_compute_instance_group" "test" {
   Minimum = 1
   Maximum = 10
 }    
-
-
-module "cloud_router" {
-  source  = "terraform-google-modules/cloud-router/google"
-  version = "0.3.0"
-
-  name    = "router"
-  project = local.project
-  region  = local.region
-  network = module.vpc.network_name
-  nats = [{
-    name                               = "nat"
-    nat_ip_allocate_option             = "AUTO_ONLY"
-    source_subnetwork_ip_ranges_to_nat = "LIST_OF_SUBNETWORKS"
-    subnetworks = [{
-      name                    = "private"
-      source_ip_ranges_to_nat = ["ALL_IP_RANGES"]
-    }]
-  }]
-}
