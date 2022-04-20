@@ -125,10 +125,26 @@ module "vpc" {
       subnet_private_access = "false"
       subnet_flow_logs      = "false"
     },
+      
+    {
+      subnet_name           = "public2"
+      subnet_ip             = "10.1.0.0/24"
+      subnet_region         = "asia-east2"
+      subnet_private_access = "false"
+      subnet_flow_logs      = "false"
+    },  
 
     {
       subnet_name           = "private"
       subnet_ip             = "10.0.1.0/24"
+      subnet_region         = "asia-east2"
+      subnet_private_access = "true"
+      subnet_flow_logs      = "false"
+    },
+      
+    {
+      subnet_name           = "private2"
+      subnet_ip             = "10.0.2.0/24"
       subnet_region         = "asia-east2"
       subnet_private_access = "true"
       subnet_flow_logs      = "false"
