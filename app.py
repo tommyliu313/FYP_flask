@@ -8,6 +8,8 @@ from sqlalchemy import Column, Integer, String, Float
 from flask_jwt_extended import JWTManager, jwt_required,create_access_token
 from flask_marshmallow import Marshmallow
 from flask_s3 import FlaskS3
+from datetime import datetime
+from werkzeug.security import generate_password_hash
 import os
 import json
 #from models import User
@@ -74,6 +76,11 @@ def redirectrestaurant():
 @app.route('/table') #指明路徑
 def table():
     return render_template('page/table.html')
+
+#@app.route('/checkuser')
+#@login_required
+#def checkuser():
+
 #@bp.route('/',methods=['POST'])
 #def register():
 
@@ -91,8 +98,10 @@ def infernal_server_error(e):
 
 # 刪除
 # Database Model
-#class User(db.Model):
-#    __tablename__ = ''
+#@app.route('',methods=['DELETE'])
+#def remove():
+#  if request.is_not_exist :
+
 
 @app.route('/api')
 def session_api():
@@ -100,7 +109,6 @@ def session_api():
 
 @app.route('/page/restaurant/<int:id>/<string:restaurant>') #指明路徑
 def restaurant(id:int,restaurant:str):
-
     return render_template('page/restaurant.html', id=id,restaurant=restaurant)
 
 @app.route('/page/viewrestaurant') #指明路徑
@@ -115,27 +123,33 @@ def waitstatview(number:int):
 #def show():
 #    json = os.path.dirname
 #數據庫
-#class customer(db.Model):
-# __tablename__ = 'customerinfo'
-# custid = db.Column(db.String(4),primary_key=True)
-# statid = db.Column(db.String(4))
-# isrequested = db.Column(db.)
+class customer(db.Model):
+ __tablename__ = 'customerinfo'
+ custid = db.Column(db.String(4),primary_key=True)
+ statid = db.Column(db.String(10))
+ isrequested = db.Column(db.Boolean)
+ phonenumber = db.Column(db.String(8))
 
-#class queuestat(db.Model):
-# __tablename__ = 'queuestat'
-# queueid = db.Column(1)
-# iswaitstat = db.Column(1)
-# iscancelstat = db.Column(1)
-# stattime = db.Column(1)
-# waitperson = db.DateTime()
+class queue(db.Model):
+ __tablename__ = 'queuestat'
+ queueid = db.Column(db.String(5),primary_key=True)
+ iswaitstat = db.Column(db.Boolean)
+ iscancelstat = Column(db.Boolean)
+ stattime = db.Column(db.DateTime())
+ waitperson = db.column(db.String(2))
 
-# class request(db.Model):
-# __tablename__ = 'request'
-# requestid = db.Column
-# Customercusid = db.Column
+class customerrequest(db.Model):
+ __tablename__ = 'request'
+ requestid = db.Column(db.String(10),primary_key=True)
+ Customercustid = db.Column(db.String(5))
 
-# class ReastaurantInfo(db.Model):
-#
+class RestaurantInfo(db.Model):
+ __tablename__ = 'RestaurantInfo'
+ restid = db.Column(db.String(5),primary_key=True,nullable=False)
+ seatnum = db.Column(db.String(2))
+ pictures = db.BLOB
+ starttime = db.Column(db.DateTime,index=True,default=datetime.utcnow)
+ endtime = db.Column(db.DateTime)
 
 #@app.route('')
 #@login_required

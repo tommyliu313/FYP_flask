@@ -61,6 +61,7 @@ module "rds" {
   db_name = ""
   username = ""
   port = "3306"
+  identifier = ""
 }
 
 #kubernetes service

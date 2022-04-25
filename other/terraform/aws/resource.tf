@@ -53,8 +53,8 @@ resource "aws_vpc" "vpc"{
 }
 resource "aws_subnet" "main" {
   vpc_id = module.vpc.id
+  availability_zone = module.vpc.azs
   cidr_block = "10.0.1.0/24"
-  availability_zone = data.aws_availability_zones.
 }
 #s3
 resource "aws_s3_bucket_object" "website" {
@@ -121,6 +121,7 @@ resource "aws_security_group" "albsg"{
    name = "application load balancer security group"
 }
 resource "aws_security_group" "bastionsg"{
+ name = "bastion host"
 
 }
 resource "aws_security_group_rule" "example" {
@@ -192,6 +193,8 @@ resource "aws_eks_cluster" "kubernetes"{
 resource "aws_eks_node_group" "kubernetes_group"{
   cluster_name = aws_eks_cluster.kubernetes.names
   node_role_arn = ""
+  node_group_name = ""
+  subnet_ids = aws_subnet.main[*].id
 
   scaling_config {
     desired_size = 1
@@ -235,6 +238,18 @@ metadata{
 }
 }
 resource "kubernetes_service" "kubernetes_service"{
+  metadata {
+    name = ""
+  }
+  spec {
+    selector = {}
+    port = {
+      port = 80
+      target_port = 80
+    }
+    type = "LoadBalancer"
+  }
+}
+resource "kubernetes_namespace" "kubernetes_namespace"{
   metadata {}
-  spec {}
 }

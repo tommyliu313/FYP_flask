@@ -13,13 +13,13 @@
         <div class="is-flex p-2">地區:</div>
         <div class="container">
           <div class="columns card-content">
-            <div class="column" id="waittime" @mouseover='mouseOver'>
+            <div class="column" id="waittime" onmouseover='mouseOver'>
               <i class="fas fa-clock fa-4x"></i>
               <p v-show="active">{{news.title}}分鐘</p>
             </div>
-            <div class="column" @mouseover='mouseOver'>
+            <div class="column" onmouseover='mouseOver'>
               <i class="fas fa-phone fa-4x"></i>
-              <p v-show="active">{{news.title}}分鐘</p>
+              <p >{{news.title}}分鐘</p>
             </div>
           </div>
         </div>

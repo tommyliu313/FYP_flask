@@ -16,10 +16,10 @@
       </div>
       <div class="carousel-inner">
 
-          {% if %}
+          {% for picture in pictures %}
           <div class="carousel-item active">
-              <img src="{{  }}" alt="">
-            {% endif %}
+              <img src="{{ picture.src }}" alt="">
+            {% endfor %}
           </div>
       <button class="carousel-control-prev" href="#carouselBanner" type="button" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true">
@@ -33,7 +33,7 @@ Previous</span>
       <span class="sr-only">
 Next</span>
       </button>
-      </div>
+      </div> //輪播
       </div>
       </section>
     
