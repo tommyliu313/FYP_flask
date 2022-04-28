@@ -1,25 +1,24 @@
 <link rel="stylesheet" href="{{ url_for('static',filename='css/bulma.min.css') }}">
 
-
-{% for in  %}
+{% block content %}
 <div id="app">
     <div class="container">
-      <div class="card mx-auto mt-2" style="width: rem;">
+      <div class="card mx-auto mt-2" style="width: 1rem;">
         <img src="image" id="photo">
         <div class="card-body">
-          <h5 class="card-title">{{news.title}}</h5>
-          <p class="card-text">{{news.abstract}}</p>
+          <h5 class="card-title">{{restaurant.name}}</h5>
+          <p class="card-text">{{restaurant.description}}</p>
         </div>
         <div class="is-flex p-2">地區:</div>
         <div class="container">
           <div class="columns card-content">
-            <div class="column" id="waittime" onmouseover='mouseOver'>
+            <div class="column" id="waittime">
               <i class="fas fa-clock fa-4x"></i>
-              <p v-show="active">{{news.title}}分鐘</p>
+              <p>{{restaurant.waittime}}分鐘</p>
             </div>
-            <div class="column" onmouseover='mouseOver'>
+            <div class="column">
               <i class="fas fa-phone fa-4x"></i>
-              <p >{{news.title}}分鐘</p>
+              <p >{{restaurant.expecttime}}分鐘</p>
             </div>
           </div>
         </div>
@@ -32,4 +31,5 @@
   </div>
     </div>
   </div>
-{% endfor %}
+    <!---->
+{% endblock %}
