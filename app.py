@@ -1,9 +1,10 @@
 # 引入模組
 # Import Module
 # import boto3
-from flask import Flask, jsonify, request, render_template, Blueprint, session
+from flask import Flask, jsonify, request, render_template, Blueprint, session, abort
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from jinja2 import TemplateNotFound
 from sqlalchemy import Column, Integer, String, Float
 from flask_jwt_extended import JWTManager, jwt_required, create_access_token
 from flask_marshmallow import Marshmallow
@@ -86,6 +87,7 @@ def table():
     return render_template('page/table.html')
 
 
+
 # @app.route('/checkuser')
 # @login_required
 # def checkuser():
@@ -132,21 +134,24 @@ def viewrestaurant():
 def waitstatview(number: int):
     return render_template('page/waitstatview.html', number=number)
 
+
 @app.route('/search_table')
 def search_table():
     return render_template('page/search_table.html')
 
-@app.route('/setcookie',methods=['POST','GET'])
+
+@app.route('/setcookie', methods=['POST', 'GET'])
 def setcookie():
     if request.method == 'POST':
         user = request.form['nm']
     resp = make_response(render_template('page/readcookie.html'))
     expire = datetime.datetime.now()
     expire = expire + datetime.timedelta(seconds=5)
-    resp.set_cookie('userID',user,expires=expire, secure=True)
-    resp.set_cookie('secureUserID',user,expires=expire,secure=True)
-    resp.set_cookie('httpOnlyUserID',user,expires=expire,httponly=True)
+    resp.set_cookie('userID', user, expires=expire, secure=True)
+    resp.set_cookie('secureUserID', user, expires=expire, secure=True)
+    resp.set_cookie('httpOnlyUserID', user, expires=expire, httponly=True)
     return resp
+
 
 @app.route('/getcookie')
 def getcookie():
@@ -154,6 +159,10 @@ def getcookie():
     secureUserID = request.cookies.get('secureUserID') or ''
     httpOnlyUserID = request.cookies.get('httpOnlyUserID') or ''
     return f"""<h1>userID: {userID}</h1><h1>secureUserID: {secureUserID}</h1><h1>httpOnlyUserID: {httpOnlyUserID}</h1>"""
+
+
+# @app.route('/submit',methods=["POST"])
+# def submit():
 
 
 # @app.route('/show')

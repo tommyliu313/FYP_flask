@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@vue/cli": "^5.0.4",
     "amazon-cognito-identity-js": "^5.2.6",
     "amazon-cognito-js": "^1.1.0",
     "aws-amplify": "^4.3.14",
