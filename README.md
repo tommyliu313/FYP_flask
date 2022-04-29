@@ -18,3 +18,6 @@ collectioninspiredbymodule13:
 https://codepen.io/frank890417
 
 {% if %}{{}}{% endif %}
+
+request.method == "post"
+request.form['']
