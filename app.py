@@ -139,6 +139,12 @@ def waitstatview(number: int):
 def search_table():
     return render_template('page/search_table.html')
 
+#@app.route('/editform')
+#def editform(FlaskForm):
+#     =
+#     =
+#     =
+
 
 @app.route('/setcookie', methods=['POST', 'GET'])
 def setcookie():
