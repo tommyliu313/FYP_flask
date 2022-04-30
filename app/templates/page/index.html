@@ -13,7 +13,7 @@
         <li class="active" data-bs-target="#carouselBanner" data-bs-slide-to="1"></li>
       </div>
       <div class="carousel-inner">
-        <div class="carousel-item"><img class="d-block w-100" src="https://placeholder.pics/svg/300x120" alt="First slide"/>
+        <div class="carousel-item"><img class="d-block w-100" src="{{ url_for('static',filename="picture/istockphoto-843610508-612x612.jpg") }} " alt="First slide"/>
           <div class="carousel-caption d-none d-md-block text-dark">
             <h3>EVA發泡板</h3>
             <p>依國際標準Pantone標準色卡之色號來製作</p>
@@ -31,7 +31,5 @@
     </div>
   </div>
 </section>
-<!-- partial -->
-
     
 {% endblock %}

@@ -45,7 +45,7 @@ def hello_world():
 
 @app.route('/index')  # 指明路徑
 def index():
-    return render_template('page/index.html',pictures=pictures)
+    return render_template('page/index.html', pictures=pictures)
 
 
 @app.route('/search')  # 指明路徑
