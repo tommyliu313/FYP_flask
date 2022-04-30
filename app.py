@@ -34,7 +34,7 @@ jwt = JWTManager(app)
 # def db_create():
 jsonpath = os.path.join(os.path.dirname(__file__), "app", 'templates', 'api')
 
-pictures = Flask(__name__, template_folder='app/static/picture')
+pictures = os.path.join(os.path.dirname(__file__), "app", 'static', 'picture')
 
 # 頁面導向
 
@@ -45,7 +45,7 @@ def hello_world():
 
 @app.route('/index')  # 指明路徑
 def index():
-    return render_template('page/index.html')
+    return render_template('page/index.html',pictures=pictures)
 
 
 @app.route('/search')  # 指明路徑
