@@ -1,24 +1,24 @@
 <link rel="stylesheet" href="{{ url_for('static',filename='css/bulma.min.css') }}">
-
+{% include 'necessaries/navbar.html' %}
 {% block content %}
 <div id="app">
     <div class="container">
       <div class="card mx-auto mt-2" style="width: 1rem;">
         <img src="image" id="photo">
         <div class="card-body">
-          <h5 class="card-title">{{restaurant.name}}</h5>
-          <p class="card-text">{{restaurant.description}}</p>
+          <h5 class="card-title">restaurant.name</h5>
+          <p class="card-text">restaurant.description</p>
         </div>
         <div class="is-flex p-2">地區:</div>
         <div class="container">
           <div class="columns card-content">
             <div class="column" id="waittime">
               <i class="fas fa-clock fa-4x"></i>
-              <p>{{restaurant.waittime}}分鐘</p>
+              <p>restaurant.waittime分鐘</p>
             </div>
             <div class="column">
               <i class="fas fa-phone fa-4x"></i>
-              <p >{{restaurant.expecttime}}分鐘</p>
+              <p >restaurant.expecttime分鐘</p>
             </div>
           </div>
         </div>
