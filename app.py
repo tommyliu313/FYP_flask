@@ -34,6 +34,7 @@ jwt = JWTManager(app)
 # def db_create():
 jsonpath = os.path.join(os.path.dirname(__file__), "app", 'templates', 'api')
 
+pictures = Flask(__name__, template_folder='app/static/picture')
 
 # 頁面導向
 

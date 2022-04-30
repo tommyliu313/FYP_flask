@@ -1,6 +1,36 @@
 <link rel="stylesheet" href="{{ url_for('static',filename='css/bulma.min.css') }}">
+<link rel="stylesheet" href="{{ url_for('static',filename='js/vue.min.js') }}">
 {% include 'necessaries/navbar.html' %}
 {% block content %}
+    <script>
+    var app = new Vue({
+  el:'#app',
+  data:{
+    active:false,
+    message: 'Welcome to Vue!',
+      news:{
+        title: '物件的使用',
+        abstract: '此教取都熱、當照進交全臺選把筆！沒來的童一書來留然，速家師話微體媽濟但事隊樹育登同，加輪保人國角好來到與、夜最細靈過男不外明，大體在會因許我藥有進？了人的施三眼巴與子令不就過城指電加會難，出國年一機成了方角機招道、列出過不地家體……又間流體雲。',
+        photo: 'https://picsum.photos/200/100/?random'
+      }
+  },
+        delimiters:["[[","]]"],
+  methods:{
+    mouseOver: function(){
+      this.active = !this.active;
+    }
+  }
+});
+/* $("#waittime").mouseenter(
+  function(){
+    $(this).css("background-color","#333");
+    $(this).css("color","#fff");
+    $(this).html("<p style='font-size:18px'>平均等候時間<p>");
+
+}
+  );*/
+
+    </script>
 <div id="app">
     <div class="container">
       <div class="card mx-auto mt-2" style="width: 1rem;">
@@ -14,11 +44,11 @@
           <div class="columns card-content">
             <div class="column" id="waittime">
               <i class="fas fa-clock fa-4x"></i>
-              <p>restaurant.waittime分鐘</p>
+              <p>[[news.title]]分鐘</p>
             </div>
             <div class="column">
               <i class="fas fa-phone fa-4x"></i>
-              <p >restaurant.expecttime分鐘</p>
+              <p>[[]]分鐘</p>
             </div>
           </div>
         </div>
