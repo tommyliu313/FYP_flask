@@ -1,11 +1,14 @@
-{% include "necessaries/navbar.html" %}
-{% block body %}
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
-    <script type="text/javascript" src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
-<script type="text/javascript" src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static',filename='js/vue.min.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static',filename='js/main.js') }}"></script>
- <section class="container-fluid">
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - A Pen by tommyliuhk313</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css'>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<section class="container-fluid">
   <div class="row">
     <div class="carousel slide" id="carouselBanner" data-bs-ride="carousel">
       <div class="carousel-indicators">
@@ -32,6 +35,7 @@
   </div>
 </section>
 <!-- partial -->
-
-    
-{% endblock %}
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js'></script>
+</body>
+</html>
