@@ -1,4 +1,26 @@
-.wording{
-    font-size: 100px ;
-    padding: 20px;
+@charset "UTF-8";
+.wording {
+  font-size: 100px;
+  padding: 20px;
+}
+
+* {
+  font-family: 微軟正黑體;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: bold;
+}
+
+header.jumbotron {
+  text-align: center;
+  background-image: url(https://static.pexels.com/photos/8807/sopot.jpg);
+  background-size: cover;
+  background-position: center center;
+  padding: 160px;
+  color: white;
+}
+
+.iconposition:hover {
+  background-color: #ff0f00;
 }

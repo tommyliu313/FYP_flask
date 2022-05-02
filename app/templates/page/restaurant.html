@@ -1,27 +1,36 @@
 {% include 'necessaries/navbar.html' %}
-<link rel="stylesheet" href="{{ url_for('static',filename='css/restaurant.css') }}">
 {% block content %}
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/photobackground.css') }}">
     <link rel="stylesheet" href="{{ url_for('static',filename='css/restaurant.css') }}">
-    <header class="jumbotron">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<header class="jumbotron">
         {% if id %}{{ id }}{% endif %}<br>
             {% if id %}{{ id }}{% endif %}
     </header>
-    <div class="columns">
+<div class="columns">
         <div class="column is-8">
             <div class="columns">
-                <div class="column is-full"><p class="wording">{% if restaurant %}{{ restaurant }}{% endif %}</p></div>
+                <div class="column is-full"><p class="wording"> ewuyn1 </p></div>
     </div>
             <br>
         <div class="columns">
             <div class="column is-full">
-                <img src="https://picsum.photos/536/354" alt=""></div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci alias aliquid asperiores cumque
+                    doloremque dolores ea earum esse explicabo facilis inventore ipsam, magni maxime natus quaerat quasi
+                    vero vitae.</p>
+            </div>
         </div>
         </div>
         <div class="column is-4">
-            <img src="https://picsum.photos/536/354" alt="">
+            <img src="https://picsum.photos/500/450" alt="">
         </div>
     </div>
+
+  <div class="columns">
+        <div class="column is-3 iconposition">
+          <i class="fa-solid fa-calendar fa-lg"></i>
+        </div>
+        <div class="column is-9">213</div>
+      </div>
 
 {% endblock %}
 
