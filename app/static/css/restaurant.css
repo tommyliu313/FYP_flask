@@ -24,3 +24,7 @@ header.jumbotron {
 .iconposition:hover {
   background-color: #ff0f00;
 }
+
+.coloredit:hover {
+    background-color: #f0f0ff;
+}
