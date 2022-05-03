@@ -87,6 +87,9 @@ def redirectrestaurant():
 def table():
     return render_template('page/table.html')
 
+@app.route('/modal')
+def modal():
+    return render_template('page/modal.html')
 
 
 # @app.route('/checkuser')

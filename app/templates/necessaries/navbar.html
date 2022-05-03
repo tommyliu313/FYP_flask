@@ -13,9 +13,7 @@
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 
-<title>
-
-CodePen - Untitled Vue Version</title>
+<title>Line in the cloud</title>
 
     <link rel="stylesheet" href="{{ url_for('static',filename='css/bulma.min.css') }}">
     <script type="text/javascript" src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
@@ -56,22 +54,22 @@ CodePen - Untitled Vue Version</title>
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
-          More
+          按此展開
         </a>
 
         <div class="navbar-dropdown">
           <a class="navbar-item">
-            About
+            1
           </a>
           <a class="navbar-item">
-            Jobs
+            2
           </a>
           <a class="navbar-item">
-            Contact
+            3
           </a>
           <hr class="navbar-divider">
-          <a class="navbar-item">
-            Report an issue
+          <a class="navbar-item" href="{{ url_for('modal') }}">
+            私隱政策 Privacy Policy
           </a>
         </div>
       </div>
