@@ -10,3 +10,8 @@ section {
     width: 100%;
     border-radius: 50%;
 }
+
+.banner{
+    background-color: #0a53be;
+    color:#f0f0f0;
+}
