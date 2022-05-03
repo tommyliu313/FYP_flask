@@ -93,7 +93,10 @@ resource "aws_internet_gateway" "gw" {
   vpc_id = module.vpc.id
 }
 
-
+resource "aws_nat_gateway""gateway"{
+  allocation_id = ""
+  subnet_id = aws_subnet.main.id
+}
 #security group
 resource "aws_security_group" "nginx-sg" {
   name   = "${local.name_prefix}-nginx_sg"

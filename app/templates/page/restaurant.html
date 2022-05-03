@@ -1,5 +1,5 @@
 {% include 'necessaries/navbar.html' %}
-{% block content %}
+{% block body %}
     <link rel="stylesheet" href="{{ url_for('static',filename='css/restaurant.css') }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 <header class="jumbotron">
@@ -32,5 +32,8 @@
         <div class="column is-9">213</div>
       </div>
 
+{% endblock %}
+{% block content %}
+    {% include "necessaries/footer.html" %}
 {% endblock %}
 

@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
 
 </head>
-  {% block content %}
+  {% block body %}
 <body>
 <!-- partial:index.partial.html -->
 <div id="app" class="container-fluid">
@@ -38,4 +38,7 @@
 <script src="https://www.unpkg.com/axios/dist/axios.min.js"></script><script src="./viewrestaurant.js"></script>
 
 </body></html>
+{% endblock %}
+{% block content %}
+    {% include "necessaries/footer.html" %}
 {% endblock %}

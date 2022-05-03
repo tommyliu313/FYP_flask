@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="{{ url_for('static',filename='css/bulma.min.css') }}">
 <link rel="stylesheet" href="{{ url_for('static',filename='js/vue.min.js') }}">
 {% include 'necessaries/navbar.html' %}
-{% block content %}
+{% block body %}
     <script>
     var app = new Vue({
   el:'#app',
@@ -62,4 +62,7 @@
     </div>
   </div>
     <!---->
+{% endblock %}
+{% block content %}
+    {% include "necessaries/footer.html" %}
 {% endblock %}

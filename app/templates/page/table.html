@@ -1,5 +1,5 @@
 {% include 'necessaries/navbar.html' %}
-{% block contents %}
+{% block body %}
     <div class="table-container"></div>
 <table class="table has-background-grey">
   <th>要求</th>
@@ -21,4 +21,7 @@
 
   </tbody>
 </table>
+{% endblock %}
+{% block content %}
+    {% include "necessaries/footer.html" %}
 {% endblock %}
